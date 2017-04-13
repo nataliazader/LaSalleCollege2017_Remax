@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRemax));
             this.menuStripRemax = new System.Windows.Forms.MenuStrip();
             this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.switchUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,16 +64,20 @@
             // 
             // switchUserToolStripMenuItem
             // 
+            this.switchUserToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("switchUserToolStripMenuItem.Image")));
+            this.switchUserToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.switchUserToolStripMenuItem.Name = "switchUserToolStripMenuItem";
-            this.switchUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.switchUserToolStripMenuItem.Text = "Switch User";
+            this.switchUserToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.switchUserToolStripMenuItem.Text = "&Switch User";
             this.switchUserToolStripMenuItem.Click += new System.EventHandler(this.switchUserToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
+            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
+            this.exitToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // managementToolStripMenuItem
@@ -89,29 +94,45 @@
             // 
             // housesToolStripMenuItem
             // 
+            this.housesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("housesToolStripMenuItem.Image")));
+            this.housesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.housesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.housesToolStripMenuItem.Name = "housesToolStripMenuItem";
-            this.housesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.housesToolStripMenuItem.Text = "Houses";
+            this.housesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.housesToolStripMenuItem.Text = "&Houses";
+            this.housesToolStripMenuItem.Click += new System.EventHandler(this.housesToolStripMenuItem_Click);
             // 
             // clientsToolStripMenuItem
             // 
+            this.clientsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clientsToolStripMenuItem.Image")));
+            this.clientsToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.clientsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.clientsToolStripMenuItem.Text = "Clients";
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientsToolStripMenuItem.Text = "&Clients";
+            this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
             // 
             // employeesToolStripMenuItem
             // 
+            this.employeesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("employeesToolStripMenuItem.Image")));
+            this.employeesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.employeesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
             this.employeesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.employeesToolStripMenuItem.Text = "Employees";
+            this.employeesToolStripMenuItem.Text = "&Employees";
             this.employeesToolStripMenuItem.Visible = false;
+            this.employeesToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
+            this.salesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salesToolStripMenuItem.Image")));
+            this.salesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.salesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
             this.salesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.salesToolStripMenuItem.Text = "Sales";
+            this.salesToolStripMenuItem.Text = "&Sales";
             this.salesToolStripMenuItem.Visible = false;
+            this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // frmRemax
             // 
@@ -120,6 +141,7 @@
             this.ClientSize = new System.Drawing.Size(884, 661);
             this.Controls.Add(this.menuStripRemax);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStripRemax;
             this.MaximizeBox = false;

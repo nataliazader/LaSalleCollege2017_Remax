@@ -14,7 +14,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
 {
     public partial class frmLogin : Form
     {
-        Employee employee = null;
+        public static Employee employee;
         public frmLogin()
         {
             InitializeComponent();
@@ -22,6 +22,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
+            employee = null;
             string email = txtEmail.Text;
             string password = txtPassword.Text;
             if (email == "")
@@ -46,7 +47,6 @@ namespace WinFormWebApp_Remax_Zader.GUI
                     {
                         MenuRemax(true, true);
                     }
-                    frmRemax.frmLoginOpen = false;
                     this.Close();
                 }
                 else

@@ -12,7 +12,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
 {
     public partial class frmRemax : Form
     {
-        public static bool frmLoginOpen;
+        public static string formToManage = "";
         public frmRemax()
         {
             InitializeComponent();
@@ -23,7 +23,6 @@ namespace WinFormWebApp_Remax_Zader.GUI
             frmLogin frmL = new frmLogin();
             frmL.MdiParent = this;
             frmL.Show();
-            frmLoginOpen = true;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,7 +38,37 @@ namespace WinFormWebApp_Remax_Zader.GUI
             frmLogin frmL = new frmLogin();
             frmL.MdiParent = this;
             frmL.Show();
-            frmLoginOpen = true;
+        }
+
+        private void housesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formToManage = "house";
+            OpenManageForm();
+        }
+
+        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formToManage = "client";
+            OpenManageForm();
+        }
+
+        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formToManage = "employee";
+            OpenManageForm();
+        }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formToManage = "sale";
+            OpenManageForm();
+        }
+
+        private void OpenManageForm()
+        {
+            frmManage frmM = new frmManage();
+            frmM.MdiParent = this;
+            frmM.Show();
         }
     }
 }
