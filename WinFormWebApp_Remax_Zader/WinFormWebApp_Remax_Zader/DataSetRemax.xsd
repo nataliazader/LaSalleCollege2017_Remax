@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetRemax" targetNamespace="http://tempuri.org/DataSetRemax.xsd" xmlns:mstns="http://tempuri.org/DataSetRemax.xsd" xmlns="http://tempuri.org/DataSetRemax.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="RemaxConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="RemaxConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WinFormWebApp_Remax_Zader.Properties.Settings.GlobalReference.Default.RemaxConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewHousesTableAdapter" GeneratorDataComponentClassName="ViewHousesTableAdapter" Name="ViewHouses" UserDataComponentName="ViewHousesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.ViewHouses" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Name, Year, NetArea, Price, Building, Bedroom, Parking, Property, Employee, Seller, Description FROM dbo.ViewHouses</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+              <Mapping SourceColumn="NetArea" DataSetColumn="NetArea" />
+              <Mapping SourceColumn="Price" DataSetColumn="Price" />
+              <Mapping SourceColumn="Building" DataSetColumn="Building" />
+              <Mapping SourceColumn="Bedroom" DataSetColumn="Bedroom" />
+              <Mapping SourceColumn="Parking" DataSetColumn="Parking" />
+              <Mapping SourceColumn="Property" DataSetColumn="Property" />
+              <Mapping SourceColumn="Employee" DataSetColumn="Employee" />
+              <Mapping SourceColumn="Seller" DataSetColumn="Seller" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewEmployeesTableAdapter" GeneratorDataComponentClassName="ViewEmployeesTableAdapter" Name="ViewEmployees" UserDataComponentName="ViewEmployeesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.ViewEmployees" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Name, Phone, Email, Gender, Address, Image, Role, Password FROM dbo.ViewEmployees</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="Gender" DataSetColumn="Gender" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Image" DataSetColumn="Image" />
+              <Mapping SourceColumn="Role" DataSetColumn="Role" />
+              <Mapping SourceColumn="Password" DataSetColumn="Password" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewClientsTableAdapter" GeneratorDataComponentClassName="ViewClientsTableAdapter" Name="ViewClients" UserDataComponentName="ViewClientsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.ViewClients" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Name, Phone, Email, Role, Agent, Comments FROM dbo.ViewClients</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="Role" DataSetColumn="Role" />
+              <Mapping SourceColumn="Agent" DataSetColumn="Agent" />
+              <Mapping SourceColumn="Comments" DataSetColumn="Comments" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetRemax" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetRemax" msprop:Generator_UserDSName="DataSetRemax">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ViewHouses" msprop:Generator_TableClassName="ViewHousesDataTable" msprop:Generator_TableVarName="tableViewHouses" msprop:Generator_TablePropName="ViewHouses" msprop:Generator_RowDeletingName="ViewHousesRowDeleting" msprop:Generator_RowChangingName="ViewHousesRowChanging" msprop:Generator_RowEvHandlerName="ViewHousesRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewHousesRowDeleted" msprop:Generator_UserTableName="ViewHouses" msprop:Generator_RowChangedName="ViewHousesRowChanged" msprop:Generator_RowEvArgName="ViewHousesRowChangeEvent" msprop:Generator_RowClassName="ViewHousesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" />
+              <xs:element name="NetArea" msprop:Generator_ColumnVarNameInTable="columnNetArea" msprop:Generator_ColumnPropNameInRow="NetArea" msprop:Generator_ColumnPropNameInTable="NetAreaColumn" msprop:Generator_UserColumnName="NetArea" type="xs:int" />
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:double" />
+              <xs:element name="Building" msprop:Generator_ColumnVarNameInTable="columnBuilding" msprop:Generator_ColumnPropNameInRow="Building" msprop:Generator_ColumnPropNameInTable="BuildingColumn" msprop:Generator_UserColumnName="Building">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bedroom" msprop:Generator_ColumnVarNameInTable="columnBedroom" msprop:Generator_ColumnPropNameInRow="Bedroom" msprop:Generator_ColumnPropNameInTable="BedroomColumn" msprop:Generator_UserColumnName="Bedroom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Parking" msprop:Generator_ColumnVarNameInTable="columnParking" msprop:Generator_ColumnPropNameInRow="Parking" msprop:Generator_ColumnPropNameInTable="ParkingColumn" msprop:Generator_UserColumnName="Parking">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Property" msprop:Generator_ColumnVarNameInTable="columnProperty" msprop:Generator_ColumnPropNameInRow="Property" msprop:Generator_ColumnPropNameInTable="PropertyColumn" msprop:Generator_UserColumnName="Property" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Employee" msprop:Generator_ColumnVarNameInTable="columnEmployee" msprop:Generator_ColumnPropNameInRow="Employee" msprop:Generator_ColumnPropNameInTable="EmployeeColumn" msprop:Generator_UserColumnName="Employee">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Seller" msprop:Generator_ColumnVarNameInTable="columnSeller" msprop:Generator_ColumnPropNameInRow="Seller" msprop:Generator_ColumnPropNameInTable="SellerColumn" msprop:Generator_UserColumnName="Seller">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ViewEmployees" msprop:Generator_TableClassName="ViewEmployeesDataTable" msprop:Generator_TableVarName="tableViewEmployees" msprop:Generator_RowChangedName="ViewEmployeesRowChanged" msprop:Generator_TablePropName="ViewEmployees" msprop:Generator_RowDeletingName="ViewEmployeesRowDeleting" msprop:Generator_RowChangingName="ViewEmployeesRowChanging" msprop:Generator_RowEvHandlerName="ViewEmployeesRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewEmployeesRowDeleted" msprop:Generator_RowClassName="ViewEmployeesRow" msprop:Generator_UserTableName="ViewEmployees" msprop:Generator_RowEvArgName="ViewEmployeesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Image" msprop:Generator_ColumnVarNameInTable="columnImage" msprop:Generator_ColumnPropNameInRow="Image" msprop:Generator_ColumnPropNameInTable="ImageColumn" msprop:Generator_UserColumnName="Image" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Role" msprop:Generator_ColumnVarNameInTable="columnRole" msprop:Generator_ColumnPropNameInRow="Role" msprop:Generator_ColumnPropNameInTable="RoleColumn" msprop:Generator_UserColumnName="Role">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_UserColumnName="Password">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ViewClients" msprop:Generator_TableClassName="ViewClientsDataTable" msprop:Generator_TableVarName="tableViewClients" msprop:Generator_TablePropName="ViewClients" msprop:Generator_RowDeletingName="ViewClientsRowDeleting" msprop:Generator_RowChangingName="ViewClientsRowChanging" msprop:Generator_RowEvHandlerName="ViewClientsRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewClientsRowDeleted" msprop:Generator_UserTableName="ViewClients" msprop:Generator_RowChangedName="ViewClientsRowChanged" msprop:Generator_RowEvArgName="ViewClientsRowChangeEvent" msprop:Generator_RowClassName="ViewClientsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Role" msprop:Generator_ColumnVarNameInTable="columnRole" msprop:Generator_ColumnPropNameInRow="Role" msprop:Generator_ColumnPropNameInTable="RoleColumn" msprop:Generator_UserColumnName="Role">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Agent" msprop:Generator_ColumnVarNameInTable="columnAgent" msprop:Generator_ColumnPropNameInRow="Agent" msprop:Generator_ColumnPropNameInTable="AgentColumn" msprop:Generator_UserColumnName="Agent">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Comments" msprop:Generator_ColumnVarNameInTable="columnComments" msprop:Generator_ColumnPropNameInRow="Comments" msprop:Generator_ColumnPropNameInTable="CommentsColumn" msprop:Generator_UserColumnName="Comments" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ViewHouses" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="ViewEmployees_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ViewEmployees" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="ViewClients_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ViewClients" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

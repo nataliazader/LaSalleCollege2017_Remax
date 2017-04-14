@@ -62,6 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetRemax.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRemax.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DATASOURCE\EmployeeDB.cs" />
     <Compile Include="DATASOURCE\Remax.cs" />
     <Compile Include="GUI\frmLogin.cs">
@@ -102,6 +107,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DataSetRemax.xsc">
+      <DependentUpon>DataSetRemax.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetRemax.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRemax.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetRemax.xss">
+      <DependentUpon>DataSetRemax.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -31,13 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRemax));
             this.menuStripRemax = new System.Windows.Forms.MenuStrip();
             this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.switchUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.housesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripRemax.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,28 +58,44 @@
             // applicationToolStripMenuItem
             // 
             this.applicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.switchUserToolStripMenuItem,
+            this.loginToolStripMenuItem,
+            this.logoutToolStripMenuItem,
+            this.toolStripSeparator1,
             this.exitToolStripMenuItem});
-            this.applicationToolStripMenuItem.Enabled = false;
             this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
             this.applicationToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.applicationToolStripMenuItem.Text = "Application";
             // 
-            // switchUserToolStripMenuItem
+            // loginToolStripMenuItem
             // 
-            this.switchUserToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("switchUserToolStripMenuItem.Image")));
-            this.switchUserToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.switchUserToolStripMenuItem.Name = "switchUserToolStripMenuItem";
-            this.switchUserToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.switchUserToolStripMenuItem.Text = "&Switch User";
-            this.switchUserToolStripMenuItem.Click += new System.EventHandler(this.switchUserToolStripMenuItem_Click);
+            this.loginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripMenuItem.Image")));
+            this.loginToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loginToolStripMenuItem.Text = "Log &In";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Enabled = false;
+            this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
+            this.logoutToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Text = "Log &Out";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
+            this.exitToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
-            this.exitToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -86,8 +105,8 @@
             this.housesToolStripMenuItem,
             this.clientsToolStripMenuItem,
             this.employeesToolStripMenuItem,
-            this.salesToolStripMenuItem});
-            this.managementToolStripMenuItem.Enabled = false;
+            this.salesToolStripMenuItem,
+            this.agentsToolStripMenuItem});
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
             this.managementToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.managementToolStripMenuItem.Text = "Manage";
@@ -110,6 +129,7 @@
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
             this.clientsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clientsToolStripMenuItem.Text = "&Clients";
+            this.clientsToolStripMenuItem.Visible = false;
             this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
             // 
             // employeesToolStripMenuItem
@@ -133,6 +153,14 @@
             this.salesToolStripMenuItem.Text = "&Sales";
             this.salesToolStripMenuItem.Visible = false;
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
+            // 
+            // agentsToolStripMenuItem
+            // 
+            this.agentsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("agentsToolStripMenuItem.Image")));
+            this.agentsToolStripMenuItem.Name = "agentsToolStripMenuItem";
+            this.agentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.agentsToolStripMenuItem.Text = "Agents";
+            this.agentsToolStripMenuItem.Click += new System.EventHandler(this.agentsToolStripMenuItem_Click);
             // 
             // frmRemax
             // 
@@ -160,14 +188,17 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStripRemax;
-        private System.Windows.Forms.ToolStripMenuItem switchUserToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem housesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem applicationToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem managementToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem housesToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem agentsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }
 

@@ -14,7 +14,9 @@ namespace WinFormWebApp_Remax_Zader.GUI
 {
     public partial class frmLogin : Form
     {
-        public static Employee employee;
+        public static List<Employee> empList;
+        public static Agent agent;
+        public static Admin admin;
         public frmLogin()
         {
             InitializeComponent();
@@ -22,7 +24,9 @@ namespace WinFormWebApp_Remax_Zader.GUI
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            employee = null;
+            empList = null;
+            admin = null;
+            agent = null;
             string email = txtEmail.Text;
             string password = txtPassword.Text;
             if (email == "")
@@ -31,21 +35,18 @@ namespace WinFormWebApp_Remax_Zader.GUI
                 labelPasswordErr.Text = "*Required password";
             else
             {
-                employee = EmployeeDB.getEmployee(email, password);
-                if (employee != null)
+                empList = EmployeeDB.getEmployee(email, password);
+                if (empList != null)
                 {
-                    MessageBox.Show(employee.Id);
-                    if (employee.Role == "user")
+                    if (empList[0].GetType().Equals(typeof(Admin)))
                     {
-                        MenuRemax(true,false);
+                        admin = (Admin)empList[0];
+                        MenuRemax(true ,true, false,false);
                     }
-                    else if (employee.Role == "admin")
+                    else if (empList[0].GetType().Equals(typeof(Agent)))
                     {
-                        MenuRemax(true, true);
-                    }
-                    else if (employee.Role == "agent")
-                    {
-                        MenuRemax(true, true);
+                        agent = (Agent)empList[0];
+                        MenuRemax(true,false,true,false);
                     }
                     this.Close();
                 }
@@ -69,14 +70,38 @@ namespace WinFormWebApp_Remax_Zader.GUI
             labelLoginErr.Text = "";
         }
 
-        private void MenuRemax(bool enabled, bool visible) {
-            ((frmRemax)this.MdiParent).applicationToolStripMenuItem.Enabled = ((frmRemax)this.MdiParent).managementToolStripMenuItem.Enabled = enabled;
-            ((frmRemax)this.MdiParent).employeesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).salesToolStripMenuItem.Visible = visible;
+        private void MenuRemax(bool menu,bool admin,bool agent,bool user) {
+
+            ((frmRemax)this.MdiParent).applicationToolStripMenuItem.Enabled = ((frmRemax)this.MdiParent).managementToolStripMenuItem.Enabled = menu;
+            if (admin)
+            {
+                ((frmRemax)this.MdiParent).housesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).clientsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).salesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).employeesToolStripMenuItem.Visible = true;
+                ((frmRemax)this.MdiParent).agentsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).loginToolStripMenuItem.Enabled = false;
+                ((frmRemax)this.MdiParent).logoutToolStripMenuItem.Enabled = true;
+            }
+            if (agent)
+            {
+                ((frmRemax)this.MdiParent).housesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).clientsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).salesToolStripMenuItem.Visible = true;
+                ((frmRemax)this.MdiParent).employeesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).agentsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).loginToolStripMenuItem.Enabled = false;
+                ((frmRemax)this.MdiParent).logoutToolStripMenuItem.Enabled = true;
+            }
+            if (user)
+            {
+                ((frmRemax)this.MdiParent).agentsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).housesToolStripMenuItem.Visible = true;
+                ((frmRemax)this.MdiParent).employeesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).clientsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).salesToolStripMenuItem.Visible = false;
+                ((frmRemax)this.MdiParent).logoutToolStripMenuItem.Enabled = false;
+            }
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            MenuRemax(false,false);
+            MenuRemax(false,false,false,false);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            MenuRemax(true, false, false, true);
+            this.Close();
         }
     }
 }

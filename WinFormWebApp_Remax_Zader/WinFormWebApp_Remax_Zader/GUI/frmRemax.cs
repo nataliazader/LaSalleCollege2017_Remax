@@ -20,24 +20,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
 
         private void frmRemax_Load(object sender, EventArgs e)
         {
-            frmLogin frmL = new frmLogin();
-            frmL.MdiParent = this;
-            frmL.Show();
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = new DialogResult();
-            dr = MessageBox.Show("Do you really want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if ((int)dr == 6)
-                this.Close();
-        }
-
-        private void switchUserToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLogin frmL = new frmLogin();
-            frmL.MdiParent = this;
-            frmL.Show();
+            
         }
 
         private void housesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,6 +52,41 @@ namespace WinFormWebApp_Remax_Zader.GUI
             frmManage frmM = new frmManage();
             frmM.MdiParent = this;
             frmM.Show();
+        }
+
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin frmL = new frmLogin();
+            frmL.MdiParent = this;
+            frmL.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Do you really what to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if ((int)dr == 6)
+            { 
+                frmLogin.empList = null;
+                frmLogin.agent = null;
+                frmLogin.admin = null;
+                logoutToolStripMenuItem.Enabled = employeesToolStripMenuItem.Visible = clientsToolStripMenuItem.Visible = salesToolStripMenuItem.Visible = false;
+                loginToolStripMenuItem.Enabled = housesToolStripMenuItem.Visible = agentsToolStripMenuItem.Visible = true;
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Do you really what to exit?","Exit",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if ((int)dr == 6)
+                this.Close();
+        }
+
+        private void agentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formToManage = "agent";
         }
     }
 }

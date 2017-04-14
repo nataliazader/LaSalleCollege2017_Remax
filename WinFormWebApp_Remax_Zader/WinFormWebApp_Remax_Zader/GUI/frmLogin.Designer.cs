@@ -31,12 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnContinue = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.labelEmail = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelEmailErr = new System.Windows.Forms.Label();
             this.labelPasswordErr = new System.Windows.Forms.Label();
             this.labelLoginErr = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtEmail
@@ -58,16 +59,16 @@
             this.txtPassword.TabIndex = 1;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
-            // btnContinue
+            // btnLogin
             // 
-            this.btnContinue.Location = new System.Drawing.Point(193, 288);
-            this.btnContinue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(100, 25);
-            this.btnContinue.TabIndex = 2;
-            this.btnContinue.Text = "Continue";
-            this.btnContinue.UseVisualStyleBackColor = true;
-            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            this.btnLogin.Location = new System.Drawing.Point(193, 288);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(100, 25);
+            this.btnLogin.TabIndex = 2;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // labelEmail
             // 
@@ -116,6 +117,17 @@
             this.labelLoginErr.Size = new System.Drawing.Size(0, 14);
             this.labelLoginErr.TabIndex = 7;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(420, 12);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(69, 25);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
@@ -125,17 +137,20 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(502, 328);
             this.ControlBox = false;
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.labelLoginErr);
             this.Controls.Add(this.labelPasswordErr);
             this.Controls.Add(this.labelEmailErr);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelEmail);
-            this.Controls.Add(this.btnContinue);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
             this.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log In";
@@ -149,11 +164,12 @@
 
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnContinue;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelEmailErr;
         private System.Windows.Forms.Label labelPasswordErr;
         private System.Windows.Forms.Label labelLoginErr;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
