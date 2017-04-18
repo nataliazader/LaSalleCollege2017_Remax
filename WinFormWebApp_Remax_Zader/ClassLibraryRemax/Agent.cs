@@ -23,7 +23,7 @@ namespace ClassLibraryRemax
             get; set;
         }
 
-        public List<string> Languages
+        public List<Language> Languages
         {
             get; set;
         }
@@ -31,7 +31,7 @@ namespace ClassLibraryRemax
         public Agent():base() 
         {
         }
-        public Agent(string id, string name, string phone, string email, string role, string gender, string address, string image, List<string> languages, string password) :base(id,name,phone,email,role,password) 
+        public Agent(string name, string phone, string email, string role, string gender, string address, string image, List<Language> languages, string password) :base(name,phone,email,role,password) 
         {
             this.Gender = gender;
             this.Address = address;

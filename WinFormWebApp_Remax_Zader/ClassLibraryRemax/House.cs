@@ -13,12 +13,12 @@ namespace ClassLibraryRemax
             get; set;
         }
 
-        public double NumberBedrooms
+        public string NumberBedrooms
         {
             get; set;
         }
 
-        public double NumberParking
+        public string NumberParking
         {
             get; set;
         }
@@ -38,37 +38,28 @@ namespace ClassLibraryRemax
             get; set;
         }
 
-        public int Pool
+        public bool Pool
         {
             get; set;
         }
 
-        public int Waterfront
+        public bool Waterfront
         {
             get; set;
         }
 
-        public int Elevator
+        public bool Elevator
         {
             get; set;
         }
 
-        public int AccessWaterfront
+        public bool AdapterMobility
         {
             get; set;
         }
 
-        public int AdapterMobility
-        {
-            get; set;
-        }
 
-        public int BodyWater
-        {
-            get; set;
-        }
-
-        public float NetArea
+        public int NetArea
         {
             get; set;
         }
@@ -76,6 +67,36 @@ namespace ClassLibraryRemax
         public int YearBuilt
         {
             get; set;
+        }
+
+        public string Address
+        {
+            get; set;
+        }
+
+        public House() : base()
+        {
+        }
+
+        public House(string id) : base()
+        {
+        }
+
+        public House(string id, string name, float price, string description,string buildingType,string numberBedrooms,string numberParking,string idAgent,string idSeller,bool pool, bool water, 
+            bool  elevator, bool mobility,int netArea,int year,string address) : base(id, name, price, description)
+        {
+            this.BuildingType = buildingType;
+            this.NumberBedrooms = numberBedrooms;
+            this.NumberParking = numberParking;
+            this.IdAgent = idAgent;
+            this.IdSeller = idSeller;
+            this.Pool = pool;
+            this.Waterfront = water;
+            this.AdapterMobility = mobility;
+            this.Elevator = elevator;
+            this.NetArea = netArea;
+            this.YearBuilt = year;
+            this.Address = address;
         }
 
         //example

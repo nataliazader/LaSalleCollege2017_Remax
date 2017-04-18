@@ -67,8 +67,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetRemax.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DATASOURCE\ClientDB.cs" />
     <Compile Include="DATASOURCE\EmployeeDB.cs" />
+    <Compile Include="DATASOURCE\HouseDB.cs" />
     <Compile Include="DATASOURCE\Remax.cs" />
+    <Compile Include="GUI\frmClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmClient.Designer.cs">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmEmployee.Designer.cs">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmHouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmHouse.Designer.cs">
+      <DependentUpon>frmHouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +109,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\frmClient.resx">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmEmployee.resx">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmHouse.resx">
+      <DependentUpon>frmHouse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>

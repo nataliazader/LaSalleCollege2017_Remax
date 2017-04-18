@@ -11,7 +11,7 @@ namespace WinFormWebApp_Remax_Zader.DATASOURCE
 {
     public static class EmployeeDB
     {
-        public static List<Employee> getEmployee(string email, string password)
+        public static Employee getEmployee(string email, string password)
         {
             SqlConnection connection = Remax.getConnection();
             string selectStatement = "SELECT * FROM Employees WHERE Email = @email  AND Password = @password";
@@ -24,7 +24,7 @@ namespace WinFormWebApp_Remax_Zader.DATASOURCE
                 SqlDataReader empReader = selectCommand.ExecuteReader(CommandBehavior.SingleRow);
                 if (empReader.Read())
                 {
-                    List<Employee> listEmp = new List<Employee>();
+                    Employee emp = new Employee();
                     if (empReader["Role"].ToString() == "admin")
                     {
                         Admin admin = new Admin();
@@ -33,7 +33,7 @@ namespace WinFormWebApp_Remax_Zader.DATASOURCE
                         admin.Phone = empReader["Phone"].ToString();
                         admin.Email = empReader["Email"].ToString();
                         admin.Role = empReader["Role"].ToString();
-                        listEmp.Add(admin);
+                        emp=admin;
                     }
 
                     if (empReader["Role"].ToString() == "agent")
@@ -49,10 +49,10 @@ namespace WinFormWebApp_Remax_Zader.DATASOURCE
                         agent.Image = empReader["Image"].ToString();
                         agent.Address = empReader["Address"].ToString();
                         agent.Languages = null;
-                        listEmp.Add(agent);
+                        emp=agent;
                     }
 
-                    return listEmp;
+                    return emp;
                 }
                 else
                 {

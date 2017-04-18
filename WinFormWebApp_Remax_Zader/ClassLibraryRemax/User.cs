@@ -10,10 +10,6 @@ namespace ClassLibraryRemax
     {
         public User() : base() { }
 
-        public User(string id, string name, string phone, string email, string role, string password) :base(id,name,phone,email,role,password) 
-        {
-        }
-
         public void SearchHouse() { }
         public void SearchEmployee() { }
     }

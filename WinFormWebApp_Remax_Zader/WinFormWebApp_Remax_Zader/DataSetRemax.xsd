@@ -7,33 +7,6 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="RemaxConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="RemaxConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WinFormWebApp_Remax_Zader.Properties.Settings.GlobalReference.Default.RemaxConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewHousesTableAdapter" GeneratorDataComponentClassName="ViewHousesTableAdapter" Name="ViewHouses" UserDataComponentName="ViewHousesTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.ViewHouses" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Id, Name, Year, NetArea, Price, Building, Bedroom, Parking, Property, Employee, Seller, Description FROM dbo.ViewHouses</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Id" DataSetColumn="Id" />
-              <Mapping SourceColumn="Name" DataSetColumn="Name" />
-              <Mapping SourceColumn="Year" DataSetColumn="Year" />
-              <Mapping SourceColumn="NetArea" DataSetColumn="NetArea" />
-              <Mapping SourceColumn="Price" DataSetColumn="Price" />
-              <Mapping SourceColumn="Building" DataSetColumn="Building" />
-              <Mapping SourceColumn="Bedroom" DataSetColumn="Bedroom" />
-              <Mapping SourceColumn="Parking" DataSetColumn="Parking" />
-              <Mapping SourceColumn="Property" DataSetColumn="Property" />
-              <Mapping SourceColumn="Employee" DataSetColumn="Employee" />
-              <Mapping SourceColumn="Seller" DataSetColumn="Seller" />
-              <Mapping SourceColumn="Description" DataSetColumn="Description" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewEmployeesTableAdapter" GeneratorDataComponentClassName="ViewEmployeesTableAdapter" Name="ViewEmployees" UserDataComponentName="ViewEmployeesTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.ViewEmployees" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -80,6 +53,383 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewHousesTableAdapter" GeneratorDataComponentClassName="ViewHousesTableAdapter" Name="ViewHouses" UserDataComponentName="ViewHousesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.ViewHouses" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Name, Year, NetArea, Price, Building, Bedroom, Parking, Property, Agent, Seller, Description FROM dbo.ViewHouses</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+              <Mapping SourceColumn="NetArea" DataSetColumn="NetArea" />
+              <Mapping SourceColumn="Price" DataSetColumn="Price" />
+              <Mapping SourceColumn="Building" DataSetColumn="Building" />
+              <Mapping SourceColumn="Bedroom" DataSetColumn="Bedroom" />
+              <Mapping SourceColumn="Parking" DataSetColumn="Parking" />
+              <Mapping SourceColumn="Property" DataSetColumn="Property" />
+              <Mapping SourceColumn="Agent" DataSetColumn="Agent" />
+              <Mapping SourceColumn="Seller" DataSetColumn="Seller" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LanguagesTableAdapter" GeneratorDataComponentClassName="LanguagesTableAdapter" Name="Languages" UserDataComponentName="LanguagesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.Languages" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Languages] WHERE (([refLanguage] = @Original_refLanguage) AND ([Language] = @Original_Language))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refLanguage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refLanguage" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Language" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Language" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Languages] ([Language]) VALUES (@Language);
+SELECT refLanguage, Language FROM Languages WHERE (refLanguage = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Language" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Language" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT refLanguage, Language FROM dbo.Languages</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Languages] SET [Language] = @Language WHERE (([refLanguage] = @Original_refLanguage) AND ([Language] = @Original_Language));
+SELECT refLanguage, Language FROM Languages WHERE (refLanguage = @refLanguage)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Language" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Language" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refLanguage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refLanguage" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Language" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Language" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="refLanguage" ColumnName="refLanguage" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@refLanguage" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="refLanguage" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="refLanguage" DataSetColumn="refLanguage" />
+              <Mapping SourceColumn="Language" DataSetColumn="Language" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BuildingTypeTableAdapter" GeneratorDataComponentClassName="BuildingTypeTableAdapter" Name="BuildingType" UserDataComponentName="BuildingTypeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.BuildingType" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[BuildingType] WHERE (([refBuildingType] = @Original_refBuildingType) AND ([BuildingType] = @Original_BuildingType))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refBuildingType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refBuildingType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_BuildingType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="BuildingType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[BuildingType] ([BuildingType]) VALUES (@BuildingType);
+SELECT refBuildingType, BuildingType FROM BuildingType WHERE (refBuildingType = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@BuildingType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="BuildingType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT refBuildingType, BuildingType FROM dbo.BuildingType</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[BuildingType] SET [BuildingType] = @BuildingType WHERE (([refBuildingType] = @Original_refBuildingType) AND ([BuildingType] = @Original_BuildingType));
+SELECT refBuildingType, BuildingType FROM BuildingType WHERE (refBuildingType = @refBuildingType)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@BuildingType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="BuildingType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refBuildingType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refBuildingType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_BuildingType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="BuildingType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="refBuildingType" ColumnName="refBuildingType" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@refBuildingType" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="refBuildingType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="refBuildingType" DataSetColumn="refBuildingType" />
+              <Mapping SourceColumn="BuildingType" DataSetColumn="BuildingType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PropertyTypeTableAdapter" GeneratorDataComponentClassName="PropertyTypeTableAdapter" Name="PropertyType" UserDataComponentName="PropertyTypeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.PropertyType" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[PropertyType] WHERE (([refPropertyType] = @Original_refPropertyType) AND ((@IsNull_propertyType = 1 AND [propertyType] IS NULL) OR ([propertyType] = @Original_propertyType)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refPropertyType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refPropertyType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_propertyType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="propertyType" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_propertyType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="propertyType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[PropertyType] ([propertyType]) VALUES (@propertyType);
+SELECT refPropertyType, propertyType FROM PropertyType WHERE (refPropertyType = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@propertyType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="propertyType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT refPropertyType, propertyType FROM dbo.PropertyType</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[PropertyType] SET [propertyType] = @propertyType WHERE (([refPropertyType] = @Original_refPropertyType) AND ((@IsNull_propertyType = 1 AND [propertyType] IS NULL) OR ([propertyType] = @Original_propertyType)));
+SELECT refPropertyType, propertyType FROM PropertyType WHERE (refPropertyType = @refPropertyType)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@propertyType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="propertyType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refPropertyType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refPropertyType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_propertyType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="propertyType" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_propertyType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="propertyType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="refPropertyType" ColumnName="refPropertyType" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@refPropertyType" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="refPropertyType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="refPropertyType" DataSetColumn="refPropertyType" />
+              <Mapping SourceColumn="propertyType" DataSetColumn="propertyType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NumBedroomsTableAdapter" GeneratorDataComponentClassName="NumBedroomsTableAdapter" Name="NumBedrooms" UserDataComponentName="NumBedroomsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.NumBedrooms" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[NumBedrooms] WHERE (([refNumBedrooms] = @Original_refNumBedrooms) AND ([NumBedrooms] = @Original_NumBedrooms) AND ([Number] = @Original_Number))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refNumBedrooms" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refNumBedrooms" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_NumBedrooms" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NumBedrooms" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Number" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Number" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[NumBedrooms] ([NumBedrooms], [Number]) VALUES (@NumBedrooms, @Number);
+SELECT refNumBedrooms, NumBedrooms, Number FROM NumBedrooms WHERE (refNumBedrooms = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@NumBedrooms" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NumBedrooms" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Number" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Number" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT refNumBedrooms, NumBedrooms, Number FROM dbo.NumBedrooms</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[NumBedrooms] SET [NumBedrooms] = @NumBedrooms, [Number] = @Number WHERE (([refNumBedrooms] = @Original_refNumBedrooms) AND ([NumBedrooms] = @Original_NumBedrooms) AND ([Number] = @Original_Number));
+SELECT refNumBedrooms, NumBedrooms, Number FROM NumBedrooms WHERE (refNumBedrooms = @refNumBedrooms)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@NumBedrooms" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NumBedrooms" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Number" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Number" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refNumBedrooms" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refNumBedrooms" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_NumBedrooms" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NumBedrooms" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Number" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Number" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="refNumBedrooms" ColumnName="refNumBedrooms" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@refNumBedrooms" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="refNumBedrooms" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="refNumBedrooms" DataSetColumn="refNumBedrooms" />
+              <Mapping SourceColumn="NumBedrooms" DataSetColumn="NumBedrooms" />
+              <Mapping SourceColumn="Number" DataSetColumn="Number" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NumParkingTableAdapter" GeneratorDataComponentClassName="NumParkingTableAdapter" Name="NumParking" UserDataComponentName="NumParkingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.NumParking" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[NumParking] WHERE (([refNumParking] = @Original_refNumParking) AND ([NumParking] = @Original_NumParking))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refNumParking" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refNumParking" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_NumParking" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NumParking" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[NumParking] ([NumParking]) VALUES (@NumParking);
+SELECT refNumParking, NumParking FROM NumParking WHERE (refNumParking = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@NumParking" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NumParking" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT refNumParking, NumParking FROM dbo.NumParking</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[NumParking] SET [NumParking] = @NumParking WHERE (([refNumParking] = @Original_refNumParking) AND ([NumParking] = @Original_NumParking));
+SELECT refNumParking, NumParking FROM NumParking WHERE (refNumParking = @refNumParking)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@NumParking" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NumParking" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refNumParking" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refNumParking" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_NumParking" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NumParking" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="refNumParking" ColumnName="refNumParking" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@refNumParking" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="refNumParking" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="refNumParking" DataSetColumn="refNumParking" />
+              <Mapping SourceColumn="NumParking" DataSetColumn="NumParking" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewAgentsTableAdapter" GeneratorDataComponentClassName="ViewAgentsTableAdapter" Name="ViewAgents" UserDataComponentName="ViewAgentsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.ViewAgents" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Name, Phone, Email, Gender, Address, Image, Password, Role FROM dbo.ViewAgents</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="Gender" DataSetColumn="Gender" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Image" DataSetColumn="Image" />
+              <Mapping SourceColumn="Password" DataSetColumn="Password" />
+              <Mapping SourceColumn="Role" DataSetColumn="Role" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmployeesTableAdapter" GeneratorDataComponentClassName="EmployeesTableAdapter" Name="Employees" UserDataComponentName="EmployeesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.Employees" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Employees] WHERE (([refEmployee] = @Original_refEmployee) AND ([Name] = @Original_Name) AND ([Phone] = @Original_Phone) AND ([Email] = @Original_Email) AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR ([Gender] = @Original_Gender)) AND ((@IsNull_Image = 1 AND [Image] IS NULL) OR ([Image] = @Original_Image)) AND ([Password] = @Original_Password) AND ([Role] = @Original_Role))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refEmployee" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Gender" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_Gender" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Image" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Image" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Image" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Image" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Role" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Role" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Employees] ([Name], [Phone], [Email], [Gender], [Address], [Image], [Password], [Role]) VALUES (@Name, @Phone, @Email, @Gender, @Address, @Image, @Password, @Role);
+SELECT refEmployee, Name, Phone, Email, Gender, Address, Image, Password, Role FROM Employees WHERE (refEmployee = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Gender" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Image" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Image" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Role" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Role" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT refEmployee, Name, Phone, Email, Gender, Address, Image, Password, Role FROM dbo.Employees</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Employees] SET [Name] = @Name, [Phone] = @Phone, [Email] = @Email, [Gender] = @Gender, [Address] = @Address, [Image] = @Image, [Password] = @Password, [Role] = @Role WHERE (([refEmployee] = @Original_refEmployee) AND ([Name] = @Original_Name) AND ([Phone] = @Original_Phone) AND ([Email] = @Original_Email) AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR ([Gender] = @Original_Gender)) AND ((@IsNull_Image = 1 AND [Image] IS NULL) OR ([Image] = @Original_Image)) AND ([Password] = @Original_Password) AND ([Role] = @Original_Role));
+SELECT refEmployee, Name, Phone, Email, Gender, Address, Image, Password, Role FROM Employees WHERE (refEmployee = @refEmployee)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Gender" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Image" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Image" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Role" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Role" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refEmployee" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Gender" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_Gender" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Image" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Image" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Image" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Image" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Role" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Role" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="refEmployee" ColumnName="refEmployee" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@refEmployee" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="refEmployee" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="refEmployee" DataSetColumn="refEmployee" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="Gender" DataSetColumn="Gender" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Image" DataSetColumn="Image" />
+              <Mapping SourceColumn="Password" DataSetColumn="Password" />
+              <Mapping SourceColumn="Role" DataSetColumn="Role" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -88,73 +438,7 @@
   <xs:element name="DataSetRemax" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetRemax" msprop:Generator_UserDSName="DataSetRemax">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ViewHouses" msprop:Generator_TableClassName="ViewHousesDataTable" msprop:Generator_TableVarName="tableViewHouses" msprop:Generator_TablePropName="ViewHouses" msprop:Generator_RowDeletingName="ViewHousesRowDeleting" msprop:Generator_RowChangingName="ViewHousesRowChanging" msprop:Generator_RowEvHandlerName="ViewHousesRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewHousesRowDeleted" msprop:Generator_UserTableName="ViewHouses" msprop:Generator_RowChangedName="ViewHousesRowChanged" msprop:Generator_RowEvArgName="ViewHousesRowChangeEvent" msprop:Generator_RowClassName="ViewHousesRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
-              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" />
-              <xs:element name="NetArea" msprop:Generator_ColumnVarNameInTable="columnNetArea" msprop:Generator_ColumnPropNameInRow="NetArea" msprop:Generator_ColumnPropNameInTable="NetAreaColumn" msprop:Generator_UserColumnName="NetArea" type="xs:int" />
-              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:double" />
-              <xs:element name="Building" msprop:Generator_ColumnVarNameInTable="columnBuilding" msprop:Generator_ColumnPropNameInRow="Building" msprop:Generator_ColumnPropNameInTable="BuildingColumn" msprop:Generator_UserColumnName="Building">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Bedroom" msprop:Generator_ColumnVarNameInTable="columnBedroom" msprop:Generator_ColumnPropNameInRow="Bedroom" msprop:Generator_ColumnPropNameInTable="BedroomColumn" msprop:Generator_UserColumnName="Bedroom">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Parking" msprop:Generator_ColumnVarNameInTable="columnParking" msprop:Generator_ColumnPropNameInRow="Parking" msprop:Generator_ColumnPropNameInTable="ParkingColumn" msprop:Generator_UserColumnName="Parking">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Property" msprop:Generator_ColumnVarNameInTable="columnProperty" msprop:Generator_ColumnPropNameInRow="Property" msprop:Generator_ColumnPropNameInTable="PropertyColumn" msprop:Generator_UserColumnName="Property" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Employee" msprop:Generator_ColumnVarNameInTable="columnEmployee" msprop:Generator_ColumnPropNameInRow="Employee" msprop:Generator_ColumnPropNameInTable="EmployeeColumn" msprop:Generator_UserColumnName="Employee">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Seller" msprop:Generator_ColumnVarNameInTable="columnSeller" msprop:Generator_ColumnPropNameInRow="Seller" msprop:Generator_ColumnPropNameInTable="SellerColumn" msprop:Generator_UserColumnName="Seller">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="ViewEmployees" msprop:Generator_TableClassName="ViewEmployeesDataTable" msprop:Generator_TableVarName="tableViewEmployees" msprop:Generator_RowChangedName="ViewEmployeesRowChanged" msprop:Generator_TablePropName="ViewEmployees" msprop:Generator_RowDeletingName="ViewEmployeesRowDeleting" msprop:Generator_RowChangingName="ViewEmployeesRowChanging" msprop:Generator_RowEvHandlerName="ViewEmployeesRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewEmployeesRowDeleted" msprop:Generator_RowClassName="ViewEmployeesRow" msprop:Generator_UserTableName="ViewEmployees" msprop:Generator_RowEvArgName="ViewEmployeesRowChangeEvent">
+        <xs:element name="ViewEmployees" msprop:Generator_TableClassName="ViewEmployeesDataTable" msprop:Generator_TableVarName="tableViewEmployees" msprop:Generator_TablePropName="ViewEmployees" msprop:Generator_RowDeletingName="ViewEmployeesRowDeleting" msprop:Generator_RowChangingName="ViewEmployeesRowChanging" msprop:Generator_RowEvHandlerName="ViewEmployeesRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewEmployeesRowDeleted" msprop:Generator_UserTableName="ViewEmployees" msprop:Generator_RowChangedName="ViewEmployeesRowChanged" msprop:Generator_RowEvArgName="ViewEmployeesRowChangeEvent" msprop:Generator_RowClassName="ViewEmployeesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -217,7 +501,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ViewClients" msprop:Generator_TableClassName="ViewClientsDataTable" msprop:Generator_TableVarName="tableViewClients" msprop:Generator_TablePropName="ViewClients" msprop:Generator_RowDeletingName="ViewClientsRowDeleting" msprop:Generator_RowChangingName="ViewClientsRowChanging" msprop:Generator_RowEvHandlerName="ViewClientsRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewClientsRowDeleted" msprop:Generator_UserTableName="ViewClients" msprop:Generator_RowChangedName="ViewClientsRowChanged" msprop:Generator_RowEvArgName="ViewClientsRowChangeEvent" msprop:Generator_RowClassName="ViewClientsRow">
+        <xs:element name="ViewClients" msprop:Generator_TableClassName="ViewClientsDataTable" msprop:Generator_TableVarName="tableViewClients" msprop:Generator_RowChangedName="ViewClientsRowChanged" msprop:Generator_TablePropName="ViewClients" msprop:Generator_RowDeletingName="ViewClientsRowDeleting" msprop:Generator_RowChangingName="ViewClientsRowChanging" msprop:Generator_RowEvHandlerName="ViewClientsRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewClientsRowDeleted" msprop:Generator_RowClassName="ViewClientsRow" msprop:Generator_UserTableName="ViewClients" msprop:Generator_RowEvArgName="ViewClientsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -266,19 +550,310 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ViewHouses" msprop:Generator_TableClassName="ViewHousesDataTable" msprop:Generator_TableVarName="tableViewHouses" msprop:Generator_RowChangedName="ViewHousesRowChanged" msprop:Generator_TablePropName="ViewHouses" msprop:Generator_RowDeletingName="ViewHousesRowDeleting" msprop:Generator_RowChangingName="ViewHousesRowChanging" msprop:Generator_RowEvHandlerName="ViewHousesRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewHousesRowDeleted" msprop:Generator_RowClassName="ViewHousesRow" msprop:Generator_UserTableName="ViewHouses" msprop:Generator_RowEvArgName="ViewHousesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" />
+              <xs:element name="NetArea" msprop:Generator_ColumnVarNameInTable="columnNetArea" msprop:Generator_ColumnPropNameInRow="NetArea" msprop:Generator_ColumnPropNameInTable="NetAreaColumn" msprop:Generator_UserColumnName="NetArea" type="xs:int" />
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:double" />
+              <xs:element name="Building" msprop:Generator_ColumnVarNameInTable="columnBuilding" msprop:Generator_ColumnPropNameInRow="Building" msprop:Generator_ColumnPropNameInTable="BuildingColumn" msprop:Generator_UserColumnName="Building">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bedroom" msprop:Generator_ColumnVarNameInTable="columnBedroom" msprop:Generator_ColumnPropNameInRow="Bedroom" msprop:Generator_ColumnPropNameInTable="BedroomColumn" msprop:Generator_UserColumnName="Bedroom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Parking" msprop:Generator_ColumnVarNameInTable="columnParking" msprop:Generator_ColumnPropNameInRow="Parking" msprop:Generator_ColumnPropNameInTable="ParkingColumn" msprop:Generator_UserColumnName="Parking">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Property" msprop:Generator_ColumnVarNameInTable="columnProperty" msprop:Generator_ColumnPropNameInRow="Property" msprop:Generator_ColumnPropNameInTable="PropertyColumn" msprop:Generator_UserColumnName="Property" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Agent" msprop:Generator_ColumnVarNameInTable="columnAgent" msprop:Generator_ColumnPropNameInRow="Agent" msprop:Generator_ColumnPropNameInTable="AgentColumn" msprop:Generator_UserColumnName="Agent">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Seller" msprop:Generator_ColumnVarNameInTable="columnSeller" msprop:Generator_ColumnPropNameInRow="Seller" msprop:Generator_ColumnPropNameInTable="SellerColumn" msprop:Generator_UserColumnName="Seller">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Languages" msprop:Generator_TableClassName="LanguagesDataTable" msprop:Generator_TableVarName="tableLanguages" msprop:Generator_TablePropName="Languages" msprop:Generator_RowDeletingName="LanguagesRowDeleting" msprop:Generator_RowChangingName="LanguagesRowChanging" msprop:Generator_RowEvHandlerName="LanguagesRowChangeEventHandler" msprop:Generator_RowDeletedName="LanguagesRowDeleted" msprop:Generator_UserTableName="Languages" msprop:Generator_RowChangedName="LanguagesRowChanged" msprop:Generator_RowEvArgName="LanguagesRowChangeEvent" msprop:Generator_RowClassName="LanguagesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="refLanguage" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnrefLanguage" msprop:Generator_ColumnPropNameInRow="refLanguage" msprop:Generator_ColumnPropNameInTable="refLanguageColumn" msprop:Generator_UserColumnName="refLanguage" type="xs:int" />
+              <xs:element name="Language" msprop:Generator_ColumnVarNameInTable="columnLanguage" msprop:Generator_ColumnPropNameInRow="Language" msprop:Generator_ColumnPropNameInTable="LanguageColumn" msprop:Generator_UserColumnName="Language">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BuildingType" msprop:Generator_TableClassName="BuildingTypeDataTable" msprop:Generator_TableVarName="tableBuildingType" msprop:Generator_RowChangedName="BuildingTypeRowChanged" msprop:Generator_TablePropName="BuildingType" msprop:Generator_RowDeletingName="BuildingTypeRowDeleting" msprop:Generator_RowChangingName="BuildingTypeRowChanging" msprop:Generator_RowEvHandlerName="BuildingTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="BuildingTypeRowDeleted" msprop:Generator_RowClassName="BuildingTypeRow" msprop:Generator_UserTableName="BuildingType" msprop:Generator_RowEvArgName="BuildingTypeRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="refBuildingType" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnrefBuildingType" msprop:Generator_ColumnPropNameInRow="refBuildingType" msprop:Generator_ColumnPropNameInTable="refBuildingTypeColumn" msprop:Generator_UserColumnName="refBuildingType" type="xs:int" />
+              <xs:element name="BuildingType" msprop:Generator_ColumnVarNameInTable="columnBuildingType" msprop:Generator_ColumnPropNameInRow="BuildingType" msprop:Generator_ColumnPropNameInTable="BuildingTypeColumn" msprop:Generator_UserColumnName="BuildingType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PropertyType" msprop:Generator_TableClassName="PropertyTypeDataTable" msprop:Generator_TableVarName="tablePropertyType" msprop:Generator_RowChangedName="PropertyTypeRowChanged" msprop:Generator_TablePropName="PropertyType" msprop:Generator_RowDeletingName="PropertyTypeRowDeleting" msprop:Generator_RowChangingName="PropertyTypeRowChanging" msprop:Generator_RowEvHandlerName="PropertyTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="PropertyTypeRowDeleted" msprop:Generator_RowClassName="PropertyTypeRow" msprop:Generator_UserTableName="PropertyType" msprop:Generator_RowEvArgName="PropertyTypeRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="refPropertyType" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnrefPropertyType" msprop:Generator_ColumnPropNameInRow="refPropertyType" msprop:Generator_ColumnPropNameInTable="refPropertyTypeColumn" msprop:Generator_UserColumnName="refPropertyType" type="xs:int" />
+              <xs:element name="propertyType" msprop:Generator_ColumnVarNameInTable="columnpropertyType" msprop:Generator_ColumnPropNameInRow="propertyType" msprop:Generator_ColumnPropNameInTable="propertyTypeColumn" msprop:Generator_UserColumnName="propertyType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NumBedrooms" msprop:Generator_TableClassName="NumBedroomsDataTable" msprop:Generator_TableVarName="tableNumBedrooms" msprop:Generator_RowChangedName="NumBedroomsRowChanged" msprop:Generator_TablePropName="NumBedrooms" msprop:Generator_RowDeletingName="NumBedroomsRowDeleting" msprop:Generator_RowChangingName="NumBedroomsRowChanging" msprop:Generator_RowEvHandlerName="NumBedroomsRowChangeEventHandler" msprop:Generator_RowDeletedName="NumBedroomsRowDeleted" msprop:Generator_RowClassName="NumBedroomsRow" msprop:Generator_UserTableName="NumBedrooms" msprop:Generator_RowEvArgName="NumBedroomsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="refNumBedrooms" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnrefNumBedrooms" msprop:Generator_ColumnPropNameInRow="refNumBedrooms" msprop:Generator_ColumnPropNameInTable="refNumBedroomsColumn" msprop:Generator_UserColumnName="refNumBedrooms" type="xs:int" />
+              <xs:element name="NumBedrooms" msprop:Generator_ColumnVarNameInTable="columnNumBedrooms" msprop:Generator_ColumnPropNameInRow="NumBedrooms" msprop:Generator_ColumnPropNameInTable="NumBedroomsColumn" msprop:Generator_UserColumnName="NumBedrooms">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Number" msprop:Generator_ColumnVarNameInTable="columnNumber" msprop:Generator_ColumnPropNameInRow="Number" msprop:Generator_ColumnPropNameInTable="NumberColumn" msprop:Generator_UserColumnName="Number" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NumParking" msprop:Generator_TableClassName="NumParkingDataTable" msprop:Generator_TableVarName="tableNumParking" msprop:Generator_RowChangedName="NumParkingRowChanged" msprop:Generator_TablePropName="NumParking" msprop:Generator_RowDeletingName="NumParkingRowDeleting" msprop:Generator_RowChangingName="NumParkingRowChanging" msprop:Generator_RowEvHandlerName="NumParkingRowChangeEventHandler" msprop:Generator_RowDeletedName="NumParkingRowDeleted" msprop:Generator_RowClassName="NumParkingRow" msprop:Generator_UserTableName="NumParking" msprop:Generator_RowEvArgName="NumParkingRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="refNumParking" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnrefNumParking" msprop:Generator_ColumnPropNameInRow="refNumParking" msprop:Generator_ColumnPropNameInTable="refNumParkingColumn" msprop:Generator_UserColumnName="refNumParking" type="xs:int" />
+              <xs:element name="NumParking" msprop:Generator_ColumnVarNameInTable="columnNumParking" msprop:Generator_ColumnPropNameInRow="NumParking" msprop:Generator_ColumnPropNameInTable="NumParkingColumn" msprop:Generator_UserColumnName="NumParking">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ViewAgents" msprop:Generator_TableClassName="ViewAgentsDataTable" msprop:Generator_TableVarName="tableViewAgents" msprop:Generator_TablePropName="ViewAgents" msprop:Generator_RowDeletingName="ViewAgentsRowDeleting" msprop:Generator_RowChangingName="ViewAgentsRowChanging" msprop:Generator_RowEvHandlerName="ViewAgentsRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewAgentsRowDeleted" msprop:Generator_UserTableName="ViewAgents" msprop:Generator_RowChangedName="ViewAgentsRowChanged" msprop:Generator_RowEvArgName="ViewAgentsRowChangeEvent" msprop:Generator_RowClassName="ViewAgentsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Image" msprop:Generator_ColumnVarNameInTable="columnImage" msprop:Generator_ColumnPropNameInRow="Image" msprop:Generator_ColumnPropNameInTable="ImageColumn" msprop:Generator_UserColumnName="Image" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_UserColumnName="Password">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Role" msprop:Generator_ColumnVarNameInTable="columnRole" msprop:Generator_ColumnPropNameInRow="Role" msprop:Generator_ColumnPropNameInTable="RoleColumn" msprop:Generator_UserColumnName="Role">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Employees" msprop:Generator_TableClassName="EmployeesDataTable" msprop:Generator_TableVarName="tableEmployees" msprop:Generator_TablePropName="Employees" msprop:Generator_RowDeletingName="EmployeesRowDeleting" msprop:Generator_RowChangingName="EmployeesRowChanging" msprop:Generator_RowEvHandlerName="EmployeesRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeesRowDeleted" msprop:Generator_UserTableName="Employees" msprop:Generator_RowChangedName="EmployeesRowChanged" msprop:Generator_RowEvArgName="EmployeesRowChangeEvent" msprop:Generator_RowClassName="EmployeesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="refEmployee" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnrefEmployee" msprop:Generator_ColumnPropNameInRow="refEmployee" msprop:Generator_ColumnPropNameInTable="refEmployeeColumn" msprop:Generator_UserColumnName="refEmployee" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Image" msprop:Generator_ColumnVarNameInTable="columnImage" msprop:Generator_ColumnPropNameInRow="Image" msprop:Generator_ColumnPropNameInTable="ImageColumn" msprop:Generator_UserColumnName="Image" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_UserColumnName="Password">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Role" msprop:Generator_ColumnVarNameInTable="columnRole" msprop:Generator_ColumnPropNameInRow="Role" msprop:Generator_ColumnPropNameInTable="RoleColumn" msprop:Generator_UserColumnName="Role">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ViewHouses" />
-      <xs:field xpath="mstns:Id" />
-    </xs:unique>
-    <xs:unique name="ViewEmployees_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ViewEmployees" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
     <xs:unique name="ViewClients_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ViewClients" />
       <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="ViewHouses_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ViewHouses" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Languages_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Languages" />
+      <xs:field xpath="mstns:refLanguage" />
+    </xs:unique>
+    <xs:unique name="BuildingType_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BuildingType" />
+      <xs:field xpath="mstns:refBuildingType" />
+    </xs:unique>
+    <xs:unique name="PropertyType_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PropertyType" />
+      <xs:field xpath="mstns:refPropertyType" />
+    </xs:unique>
+    <xs:unique name="NumBedrooms_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NumBedrooms" />
+      <xs:field xpath="mstns:refNumBedrooms" />
+    </xs:unique>
+    <xs:unique name="NumParking_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NumParking" />
+      <xs:field xpath="mstns:refNumParking" />
+    </xs:unique>
+    <xs:unique name="ViewAgents_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ViewAgents" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Employees_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Employees" />
+      <xs:field xpath="mstns:refEmployee" />
     </xs:unique>
   </xs:element>
 </xs:schema>

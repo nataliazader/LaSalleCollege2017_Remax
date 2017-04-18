@@ -7,51 +7,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibraryRemax;
+using WinFormWebApp_Remax_Zader.DATASOURCE;
 
 namespace WinFormWebApp_Remax_Zader.GUI
 {
     public partial class frmManage : Form
     {
-        DataSetRemax dataSetRemax = new DataSetRemax();
+        public static string mode="";
+        public static House house = null;
+        //Employee employee = null;
+        public static Client client =null;
         public frmManage()
         {
             InitializeComponent();
         }
 
         private void frmManage_Load(object sender, EventArgs e)
-        {            
-            if (frmLogin.empList==null)
+        {
+            if (frmLogin.employee == null)
+            {
                 User();
+                User user = new User();
+            }
             if (frmRemax.formToManage == "house")
             {
-                DataSetRemaxTableAdapters.ViewHousesTableAdapter adapterViewHouses = new DataSetRemaxTableAdapters.ViewHousesTableAdapter();
-                adapterViewHouses.Fill(dataSetRemax.ViewHouses);
-                dgvResult.DataSource = dataSetRemax.ViewHouses;
+                if (frmLogin.employee == null)
+                    dgvResult.DataSource = Remax.ViewHouses("user");
+                else
+                    dgvResult.DataSource = Remax.ViewHouses();
             }
             else if (frmRemax.formToManage == "client")
             {
-                DataSetRemaxTableAdapters.ViewClientsTableAdapter adapterViewClients = new DataSetRemaxTableAdapters.ViewClientsTableAdapter();
-                adapterViewClients.Fill(dataSetRemax.ViewClients);
                 if (frmLogin.agent != null)
                 {
-                    DataView dataViewAgent = new DataView(dataSetRemax.ViewClients);
-                    dataViewAgent.RowFilter = "Agent = '"+ frmLogin.agent.Name+"'";
-                    dgvResult.DataSource = dataViewAgent;
+                    dgvResult.DataSource = Remax.ViewClients(frmLogin.agent.Name);
                 }
                 else
-                   dgvResult.DataSource = dataSetRemax.ViewClients;
+                   dgvResult.DataSource = Remax.ViewClients();
             }
             else if (frmRemax.formToManage == "employee")
             {
-
-            }
-            else if (frmRemax.formToManage == "sale")
-            {
-
+                dgvResult.DataSource = Remax.ViewEmployees();
             }
             else if (frmRemax.formToManage == "agent")
             {
-
+                dgvResult.DataSource = Remax.TabAgents();
             }
         }
 
@@ -63,6 +64,66 @@ namespace WinFormWebApp_Remax_Zader.GUI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            mode = "add";
+            if (frmRemax.formToManage == "house")
+            {
+                frmHouse frmH = new frmHouse();
+                frmH.ShowDialog();
+            }
+            else if (frmRemax.formToManage == "client")
+            {
+                frmClient frmC = new frmClient();
+                frmC.ShowDialog();
+            }
+            else if (frmRemax.formToManage == "employee")
+            {
+                frmEmployee frmE = new frmEmployee();
+                frmE.ShowDialog();
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            mode = "edit";
+            string id = dgvResult.Rows[dgvResult.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            if (frmRemax.formToManage == "house")
+            {
+                house = HouseDB.getHouse(id);
+                frmHouse frmH = new frmHouse();
+                frmH.ShowDialog();
+            }
+            else if (frmRemax.formToManage == "client")
+            {
+                client = ClientDB.getClient(id);
+                frmClient frmC = new frmClient();
+                frmC.ShowDialog();
+            }
+            else if (frmRemax.formToManage == "employee")
+            {
+                frmEmployee frmE = new frmEmployee();
+                frmE.ShowDialog();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string id = dgvResult.Rows[dgvResult.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            if (frmRemax.formToManage == "house")
+            {
+
+            }
+            else if (frmRemax.formToManage == "client")
+            {
+
+            }
+            else if (frmRemax.formToManage == "employee")
+            {
+
+            }
         }
     }
 }

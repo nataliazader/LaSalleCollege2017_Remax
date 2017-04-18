@@ -14,7 +14,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
 {
     public partial class frmLogin : Form
     {
-        public static List<Employee> empList;
+        public static Employee employee;
         public static Agent agent;
         public static Admin admin;
         public frmLogin()
@@ -24,7 +24,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            empList = null;
+            employee = null;
             admin = null;
             agent = null;
             string email = txtEmail.Text;
@@ -35,17 +35,17 @@ namespace WinFormWebApp_Remax_Zader.GUI
                 labelPasswordErr.Text = "*Required password";
             else
             {
-                empList = EmployeeDB.getEmployee(email, password);
-                if (empList != null)
+                employee = EmployeeDB.getEmployee(email, password);
+                if (employee != null)
                 {
-                    if (empList[0].GetType().Equals(typeof(Admin)))
+                    if (employee.GetType().Equals(typeof(Admin)))
                     {
-                        admin = (Admin)empList[0];
+                        admin = (Admin)employee;
                         MenuRemax(true ,true, false,false);
                     }
-                    else if (empList[0].GetType().Equals(typeof(Agent)))
+                    else if (employee.GetType().Equals(typeof(Agent)))
                     {
-                        agent = (Agent)empList[0];
+                        agent = (Agent)employee;
                         MenuRemax(true,false,true,false);
                     }
                     this.Close();
@@ -75,20 +75,20 @@ namespace WinFormWebApp_Remax_Zader.GUI
             ((frmRemax)this.MdiParent).applicationToolStripMenuItem.Enabled = ((frmRemax)this.MdiParent).managementToolStripMenuItem.Enabled = menu;
             if (admin)
             {
-                ((frmRemax)this.MdiParent).housesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).clientsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).salesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).employeesToolStripMenuItem.Visible = true;
+                ((frmRemax)this.MdiParent).housesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).clientsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).employeesToolStripMenuItem.Visible = true;
                 ((frmRemax)this.MdiParent).agentsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).loginToolStripMenuItem.Enabled = false;
                 ((frmRemax)this.MdiParent).logoutToolStripMenuItem.Enabled = true;
             }
             if (agent)
             {
-                ((frmRemax)this.MdiParent).housesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).clientsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).salesToolStripMenuItem.Visible = true;
+                ((frmRemax)this.MdiParent).housesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).clientsToolStripMenuItem.Visible =  true;
                 ((frmRemax)this.MdiParent).employeesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).agentsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).loginToolStripMenuItem.Enabled = false;
                 ((frmRemax)this.MdiParent).logoutToolStripMenuItem.Enabled = true;
             }
             if (user)
             {
                 ((frmRemax)this.MdiParent).agentsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).housesToolStripMenuItem.Visible = true;
-                ((frmRemax)this.MdiParent).employeesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).clientsToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).salesToolStripMenuItem.Visible = false;
+                ((frmRemax)this.MdiParent).employeesToolStripMenuItem.Visible = ((frmRemax)this.MdiParent).clientsToolStripMenuItem.Visible = false;
                 ((frmRemax)this.MdiParent).logoutToolStripMenuItem.Enabled = false;
             }
         }

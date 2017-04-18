@@ -68,7 +68,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
             dr = MessageBox.Show("Do you really what to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if ((int)dr == 6)
             { 
-                frmLogin.empList = null;
+                frmLogin.employee = null;
                 frmLogin.agent = null;
                 frmLogin.admin = null;
                 logoutToolStripMenuItem.Enabled = employeesToolStripMenuItem.Visible = clientsToolStripMenuItem.Visible = salesToolStripMenuItem.Visible = false;
@@ -87,6 +87,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
         private void agentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formToManage = "agent";
+            OpenManageForm();
         }
     }
 }
