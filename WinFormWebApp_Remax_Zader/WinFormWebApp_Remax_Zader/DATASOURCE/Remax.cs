@@ -103,7 +103,37 @@ namespace WinFormWebApp_Remax_Zader.DATASOURCE
             return tabAgents;
         }
 
+        public static DataTable TabHouses()
+        {
+            DataSetRemax.HousesDataTable tabHouses = new DataSetRemax.HousesDataTable();
+            DataSetRemaxTableAdapters.HousesTableAdapter adpHouses = new DataSetRemaxTableAdapters.HousesTableAdapter();
+            adpHouses.Fill(tabHouses);
+            return tabHouses;
+        }
 
+        public static DataTable TabClients()
+        {
+            DataSetRemax.ClientsDataTable tabClients = new DataSetRemax.ClientsDataTable();
+            DataSetRemaxTableAdapters.ClientsTableAdapter adpClients = new DataSetRemaxTableAdapters.ClientsTableAdapter();
+            adpClients.Fill(tabClients);
+            return tabClients;
+        }
+
+        public static DataTable TabEmployees()
+        {
+            DataSetRemax.EmployeesDataTable tabEmployees = new DataSetRemax.EmployeesDataTable();
+            DataSetRemaxTableAdapters.EmployeesTableAdapter adpEmployees = new DataSetRemaxTableAdapters.EmployeesTableAdapter();
+            adpEmployees.Fill(tabEmployees);
+            return tabEmployees;
+        }
+
+        public static DataTable TabLanguages()
+        {
+            DataSetRemax.AgentLanguagesDataTable tabLanguages = new DataSetRemax.AgentLanguagesDataTable();
+            DataSetRemaxTableAdapters.AgentLanguagesTableAdapter adpLanguages = new DataSetRemaxTableAdapters.AgentLanguagesTableAdapter();
+            adpLanguages.Fill(tabLanguages);
+            return tabLanguages;
+        }
 
     }
 }

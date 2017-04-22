@@ -28,14 +28,22 @@ namespace WinFormWebApp_Remax_Zader.GUI
         private void frmHouse_Load(object sender, EventArgs e)
         {
             txtHName.Focus();
-
+            
             cboHClient.DataSource = Remax.ViewClients();
             cboHClient.DisplayMember = "Name";
             cboHClient.ValueMember = "Id";
 
-            cboHAgent.DataSource = Remax.ViewEmployees();
-            cboHAgent.DisplayMember = "Name";
-            cboHAgent.ValueMember = "Id";
+            if (frmLogin.admin != null)
+            {
+                cboHAgent.DataSource = Remax.ViewEmployees();
+                cboHAgent.DisplayMember = "Name";
+                cboHAgent.ValueMember = "Id";
+            }
+            else {
+                cboHAgent.Visible = false;
+                lblHAgent.Visible = false;
+            }
+
 
 
             cboHBuilding.DataSource = Remax.TabBuilding();
@@ -54,10 +62,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
             cboHBedrooms.DataSource = Remax.TabBedrooms();
             cboHBedrooms.DisplayMember = "NumBedrooms";
             cboHBedrooms.ValueMember = "refNumBedrooms";
-            if (frmManage.mode == "add")
-            {
 
-            }
             if (frmManage.mode == "edit")
             {
                 house = frmManage.house;
@@ -65,6 +70,10 @@ namespace WinFormWebApp_Remax_Zader.GUI
                 txtHPrice.Text = house.Price.ToString();
                 txtHNetArea.Text = house.NetArea.ToString();
                 txtYear.Text = house.YearBuilt.ToString();
+                checkBoxElevator.Checked = house.Elevator;
+                checkBoxMobility.Checked = house.AdapterMobility;
+                checkBoxPool.Checked = house.Pool;
+                checkBoxWater.Checked = house.Waterfront;
 
                 foreach (DataRow row in Remax.ViewEmployees())
                     if (row["Id"].ToString() == house.IdAgent)
@@ -72,22 +81,76 @@ namespace WinFormWebApp_Remax_Zader.GUI
 
                 foreach (DataRow row in Remax.ViewClients())
                     if (row["Id"].ToString() == house.IdSeller)
-                        cboHAgent.Text = row["Name"].ToString();
+                        cboHClient.Text = row["Name"].ToString();
                 foreach (DataRow row in Remax.TabBuilding())
                     if (row["refBuildingType"].ToString() == house.BuildingType)
                         cboHBuilding.Text = row["BuildingType"].ToString();
                 foreach (DataRow row in Remax.TabProperty())
                     if (row["refPropertyType"].ToString() == house.BuildingType)
-                        cboHBuilding.Text = row["PropertyType"].ToString();
+                        cboHProperty.Text = row["PropertyType"].ToString();
                 foreach (DataRow row in Remax.TabParking())
                     if (row["refNumParking"].ToString() == house.BuildingType)
-                        cboHBuilding.Text = row["NumParking"].ToString();
+                       cboHParking.Text = row["NumParking"].ToString();
                 foreach (DataRow row in Remax.TabBedrooms())
                     if (row["refNumBedrooms"].ToString() == house.BuildingType)
-                        cboHBuilding.Text = row["NumBedrooms"].ToString();
+                       cboHBedrooms.Text = row["NumBedrooms"].ToString();
                 txtHDesc.Text = house.Description;
                 txtHAddress.Text = house.Address;
             }
+        }
+
+        private void btnHSave_Click(object sender, EventArgs e)
+        {
+            House house = new House();
+            house.BuildingType = cboHBuilding.SelectedValue.ToString();
+            house.NumberParking = cboHParking.SelectedValue.ToString();
+            house.NumberBedrooms = cboHBedrooms.SelectedValue.ToString();
+            house.PropertyType = cboHProperty.SelectedValue.ToString();
+            house.Price = float.Parse(txtHPrice.Text);
+            house.IdAgent = (frmLogin.agent != null) ? frmLogin.agent.Id : cboHAgent.SelectedValue.ToString();
+            house.IdSeller = cboHClient.SelectedValue.ToString();
+            house.Pool = (checkBoxPool.Checked) ? true : false;
+            house.Waterfront = (checkBoxWater.Checked) ? true : false;
+            house.Elevator = (checkBoxElevator.Checked) ? true : false;
+            house.AdapterMobility = (checkBoxMobility.Checked) ? true : false;
+            house.NetArea = int.Parse(txtHNetArea.Text);
+            house.YearBuilt = int.Parse(txtYear.Text);
+            house.Description = txtHDesc.Text;
+            house.Name = txtHName.Text;
+            house.Address = txtHAddress.Text;
+
+            if (frmManage.mode == "add" && frmLogin.admin!=null)
+            {
+                frmLogin.admin.Houses = Remax.TabHouses();
+                frmLogin.admin.AddHouse(house);
+                HouseDB.UpdateHousesDB(frmLogin.admin.Houses);
+            }
+
+            if (frmManage.mode == "add" && frmLogin.agent != null)
+            {
+                frmLogin.agent.Houses = Remax.TabHouses();
+                frmLogin.agent.AddHouse(house);
+                HouseDB.UpdateHousesDB(frmLogin.agent.Houses);
+            }
+
+            if (frmManage.mode == "edit" && frmLogin.admin != null)
+            {
+                house.Id = frmManage.house.Id;
+                frmLogin.admin.Houses = Remax.TabHouses();
+                frmLogin.admin.EditHouse(house);
+                HouseDB.UpdateHousesDB(frmLogin.admin.Houses);
+            }
+
+            if (frmManage.mode == "edit" && frmLogin.agent != null)
+            {
+                house.Id = frmManage.house.Id;
+                frmLogin.agent.Houses = Remax.TabHouses();
+                frmLogin.agent.EditHouse(house);
+                HouseDB.UpdateHousesDB(frmLogin.agent.Houses);
+            }
+
+
+            this.Close();
         }
     }
 }

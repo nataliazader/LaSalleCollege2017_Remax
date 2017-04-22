@@ -85,8 +85,8 @@
             // 
             this.cboRole.FormattingEnabled = true;
             this.cboRole.Items.AddRange(new object[] {
-            "seller",
-            "buyer"});
+            "Seller",
+            "Buyer"});
             this.cboRole.Location = new System.Drawing.Point(85, 145);
             this.cboRole.Name = "cboRole";
             this.cboRole.Size = new System.Drawing.Size(140, 21);
@@ -155,6 +155,7 @@
             this.btnCSave.TabIndex = 12;
             this.btnCSave.Text = "SAVE";
             this.btnCSave.UseVisualStyleBackColor = true;
+            this.btnCSave.Click += new System.EventHandler(this.btnCSave_Click);
             // 
             // btnCCancel
             // 

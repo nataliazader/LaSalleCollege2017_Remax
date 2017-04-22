@@ -14,10 +14,11 @@ namespace WinFormWebApp_Remax_Zader.GUI
 {
     public partial class frmManage : Form
     {
-        public static string mode="";
-        public static House house = null;
-        //Employee employee = null;
-        public static Client client =null;
+        public static string mode;
+        public static House house;
+        public static Employee employee;
+        public static Client client;
+        public static Agent agent;
         public frmManage()
         {
             InitializeComponent();
@@ -25,6 +26,12 @@ namespace WinFormWebApp_Remax_Zader.GUI
 
         private void frmManage_Load(object sender, EventArgs e)
         {
+            mode = "";
+            house = null;
+            employee = null;
+            client = null;
+            agent = null;
+
             if (frmLogin.employee == null)
             {
                 User();
@@ -93,8 +100,22 @@ namespace WinFormWebApp_Remax_Zader.GUI
             if (frmRemax.formToManage == "house")
             {
                 house = HouseDB.getHouse(id);
-                frmHouse frmH = new frmHouse();
-                frmH.ShowDialog();
+                if (frmLogin.agent != null)
+                {
+                    if (house.IdAgent != frmLogin.agent.Id)
+                        MessageBox.Show("The house added by another agent.You can not edit.");
+                    else
+                    {
+                        frmHouse frmH = new frmHouse();
+                        frmH.ShowDialog();
+                    }
+                }
+                else
+                {
+                    frmHouse frmH = new frmHouse();
+                    frmH.ShowDialog();
+                }
+
             }
             else if (frmRemax.formToManage == "client")
             {
@@ -104,6 +125,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
             }
             else if (frmRemax.formToManage == "employee")
             {
+                agent = EmployeeDB.getAgent(id);
                 frmEmployee frmE = new frmEmployee();
                 frmE.ShowDialog();
             }
@@ -112,17 +134,65 @@ namespace WinFormWebApp_Remax_Zader.GUI
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string id = dgvResult.Rows[dgvResult.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            DialogResult dr = new DialogResult();         
+            dr=MessageBox.Show("Do you really want to delete a record, ID = " + id + " ?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if ((int)dr == 6) { 
+                if (frmRemax.formToManage == "house")
+                {
+                    if (frmLogin.admin != null)
+                    {
+                        frmLogin.admin.Houses = Remax.TabHouses();
+                        frmLogin.admin.DeleteHouse(id);
+                        HouseDB.UpdateHousesDB(frmLogin.admin.Houses);
+                    }
+                  
+                    if (frmLogin.agent != null)
+                    {
+                        house = HouseDB.getHouse(id);
+                        if (house.IdAgent != frmLogin.agent.Id)
+                            MessageBox.Show("The house added by another agent.You can not delete.");
+                        else
+                        {
+                            frmLogin.agent.Houses = Remax.TabHouses();
+                            frmLogin.agent.DeleteHouse(id);
+                            HouseDB.UpdateHousesDB(frmLogin.agent.Houses);
+                        }
+                    }                      
+                }
+                else if (frmRemax.formToManage == "client")
+                {
+                    if (frmLogin.admin != null)
+                    {
+                        frmLogin.admin.Clients = Remax.TabClients();
+                        frmLogin.admin.DeleteClient(id);
+                        ClientDB.UpdateClientsDB(frmLogin.admin.Clients);
+                    }
+                    else
+                    {
+                        frmLogin.agent.Clients = Remax.TabClients();
+                        frmLogin.agent.DeleteClient(id);
+                        ClientDB.UpdateClientsDB(frmLogin.agent.Clients);
+                    }
+                }
+                else if (frmRemax.formToManage == "employee")
+                {
+                    frmLogin.admin.Employees = Remax.TabEmployees();
+                    frmLogin.admin.Languages = Remax.TabLanguages();
+                    frmLogin.admin.DeleteEmployee(id);
+                    EmployeeDB.UpdateEmployeesDB(frmLogin.admin.Employees,frmLogin.admin.Languages);
+                }
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
             if (frmRemax.formToManage == "house")
             {
-
-            }
-            else if (frmRemax.formToManage == "client")
-            {
-
-            }
-            else if (frmRemax.formToManage == "employee")
-            {
-
+                if (frmLogin.employee == null)
+                    dgvResult.DataSource = Remax.ViewHouses("user");
+                else
+                    dgvResult.DataSource = Remax.ViewHouses();
             }
         }
     }

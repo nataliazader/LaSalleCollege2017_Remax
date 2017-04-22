@@ -54,6 +54,10 @@
             this.lblHDescription = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtHAddress = new System.Windows.Forms.RichTextBox();
+            this.checkBoxPool = new System.Windows.Forms.CheckBox();
+            this.checkBoxWater = new System.Windows.Forms.CheckBox();
+            this.checkBoxElevator = new System.Windows.Forms.CheckBox();
+            this.checkBoxMobility = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtYear
@@ -149,6 +153,7 @@
             this.btnHSave.TabIndex = 11;
             this.btnHSave.Text = "SAVE";
             this.btnHSave.UseVisualStyleBackColor = true;
+            this.btnHSave.Click += new System.EventHandler(this.btnHSave_Click);
             // 
             // btnHCancel
             // 
@@ -249,7 +254,7 @@
             this.lblHClient.Name = "lblHClient";
             this.lblHClient.Size = new System.Drawing.Size(40, 13);
             this.lblHClient.TabIndex = 22;
-            this.lblHClient.Text = "Client";
+            this.lblHClient.Text = "Seller";
             // 
             // lblHDescription
             // 
@@ -277,12 +282,56 @@
             this.txtHAddress.TabIndex = 25;
             this.txtHAddress.Text = "";
             // 
+            // checkBoxPool
+            // 
+            this.checkBoxPool.AutoSize = true;
+            this.checkBoxPool.Location = new System.Drawing.Point(278, 148);
+            this.checkBoxPool.Name = "checkBoxPool";
+            this.checkBoxPool.Size = new System.Drawing.Size(50, 17);
+            this.checkBoxPool.TabIndex = 26;
+            this.checkBoxPool.Text = "Pool";
+            this.checkBoxPool.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxWater
+            // 
+            this.checkBoxWater.AutoSize = true;
+            this.checkBoxWater.Location = new System.Drawing.Point(278, 178);
+            this.checkBoxWater.Name = "checkBoxWater";
+            this.checkBoxWater.Size = new System.Drawing.Size(92, 17);
+            this.checkBoxWater.TabIndex = 27;
+            this.checkBoxWater.Text = "Water Front";
+            this.checkBoxWater.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxElevator
+            // 
+            this.checkBoxElevator.AutoSize = true;
+            this.checkBoxElevator.Location = new System.Drawing.Point(415, 148);
+            this.checkBoxElevator.Name = "checkBoxElevator";
+            this.checkBoxElevator.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxElevator.TabIndex = 28;
+            this.checkBoxElevator.Text = "Elevator";
+            this.checkBoxElevator.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxMobility
+            // 
+            this.checkBoxMobility.AutoSize = true;
+            this.checkBoxMobility.Location = new System.Drawing.Point(415, 178);
+            this.checkBoxMobility.Name = "checkBoxMobility";
+            this.checkBoxMobility.Size = new System.Drawing.Size(161, 17);
+            this.checkBoxMobility.TabIndex = 29;
+            this.checkBoxMobility.Text = "Adapt Reduced mobility";
+            this.checkBoxMobility.UseVisualStyleBackColor = true;
+            // 
             // frmHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 381);
+            this.ClientSize = new System.Drawing.Size(584, 379);
             this.ControlBox = false;
+            this.Controls.Add(this.checkBoxMobility);
+            this.Controls.Add(this.checkBoxElevator);
+            this.Controls.Add(this.checkBoxWater);
+            this.Controls.Add(this.checkBoxPool);
             this.Controls.Add(this.txtHAddress);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblHDescription);
@@ -348,5 +397,9 @@
         private System.Windows.Forms.Label lblHDescription;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.RichTextBox txtHAddress;
+        private System.Windows.Forms.CheckBox checkBoxPool;
+        private System.Windows.Forms.CheckBox checkBoxWater;
+        private System.Windows.Forms.CheckBox checkBoxElevator;
+        private System.Windows.Forms.CheckBox checkBoxMobility;
     }
 }

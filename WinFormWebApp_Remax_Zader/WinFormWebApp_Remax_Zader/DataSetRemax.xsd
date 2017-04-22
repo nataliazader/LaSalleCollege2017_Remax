@@ -53,33 +53,6 @@
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewHousesTableAdapter" GeneratorDataComponentClassName="ViewHousesTableAdapter" Name="ViewHouses" UserDataComponentName="ViewHousesTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.ViewHouses" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Id, Name, Year, NetArea, Price, Building, Bedroom, Parking, Property, Agent, Seller, Description FROM dbo.ViewHouses</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Id" DataSetColumn="Id" />
-              <Mapping SourceColumn="Name" DataSetColumn="Name" />
-              <Mapping SourceColumn="Year" DataSetColumn="Year" />
-              <Mapping SourceColumn="NetArea" DataSetColumn="NetArea" />
-              <Mapping SourceColumn="Price" DataSetColumn="Price" />
-              <Mapping SourceColumn="Building" DataSetColumn="Building" />
-              <Mapping SourceColumn="Bedroom" DataSetColumn="Bedroom" />
-              <Mapping SourceColumn="Parking" DataSetColumn="Parking" />
-              <Mapping SourceColumn="Property" DataSetColumn="Property" />
-              <Mapping SourceColumn="Agent" DataSetColumn="Agent" />
-              <Mapping SourceColumn="Seller" DataSetColumn="Seller" />
-              <Mapping SourceColumn="Description" DataSetColumn="Description" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LanguagesTableAdapter" GeneratorDataComponentClassName="LanguagesTableAdapter" Name="Languages" UserDataComponentName="LanguagesTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.Languages" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -430,6 +403,285 @@ SELECT refEmployee, Name, Phone, Email, Gender, Address, Image, Password, Role F
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="HousesTableAdapter" GeneratorDataComponentClassName="HousesTableAdapter" Name="Houses" UserDataComponentName="HousesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.Houses" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Houses] WHERE (([refHouse] = @Original_refHouse) AND ([referBuildingType] = @Original_referBuildingType) AND ([referNumBedrooms] = @Original_referNumBedrooms) AND ([referNumParking] = @Original_referNumParking) AND ([referPropertyType] = @Original_referPropertyType) AND ([price] = @Original_price) AND ([referEmployee] = @Original_referEmployee) AND ([referClient] = @Original_referClient) AND ((@IsNull_Pool = 1 AND [Pool] IS NULL) OR ([Pool] = @Original_Pool)) AND ((@IsNull_Waterfront = 1 AND [Waterfront] IS NULL) OR ([Waterfront] = @Original_Waterfront)) AND ((@IsNull_Elevator = 1 AND [Elevator] IS NULL) OR ([Elevator] = @Original_Elevator)) AND ((@IsNull_Reduced_mobility = 1 AND [Reduced mobility] IS NULL) OR ([Reduced mobility] = @Original_Reduced_mobility)) AND ([NetArea] = @Original_NetArea) AND ([YearBuilt] = @Original_YearBuilt) AND ([Name] = @Original_Name) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refHouse" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refHouse" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referBuildingType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referBuildingType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referNumBedrooms" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referNumBedrooms" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referNumParking" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referNumParking" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referPropertyType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referPropertyType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_price" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referClient" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referClient" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Pool" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Pool" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Pool" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Pool" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Waterfront" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Waterfront" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Waterfront" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Waterfront" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Elevator" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Elevator" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Elevator" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Elevator" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Reduced_mobility" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Reduced mobility" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Reduced_mobility" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Reduced mobility" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NetArea" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NetArea" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_YearBuilt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="YearBuilt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Address" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Address" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Houses] ([referBuildingType], [referNumBedrooms], [referNumParking], [referPropertyType], [price], [referEmployee], [referClient], [Pool], [Waterfront], [Elevator], [Reduced mobility], [NetArea], [YearBuilt], [Description], [Name], [Address]) VALUES (@referBuildingType, @referNumBedrooms, @referNumParking, @referPropertyType, @price, @referEmployee, @referClient, @Pool, @Waterfront, @Elevator, @Reduced_mobility, @NetArea, @YearBuilt, @Description, @Name, @Address);
+SELECT refHouse, referBuildingType, referNumBedrooms, referNumParking, referPropertyType, price, referEmployee, referClient, Pool, Waterfront, Elevator, [Reduced mobility], NetArea, YearBuilt, Description, Name, Address FROM Houses WHERE (refHouse = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referBuildingType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referBuildingType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referNumBedrooms" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referNumBedrooms" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referNumParking" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referNumParking" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referPropertyType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referPropertyType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@price" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referClient" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referClient" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Pool" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Pool" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Waterfront" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Waterfront" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Elevator" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Elevator" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Reduced_mobility" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Reduced mobility" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NetArea" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NetArea" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@YearBuilt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="YearBuilt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Description" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT refHouse, referBuildingType, referNumBedrooms, referNumParking, referPropertyType, price, referEmployee, referClient, Pool, Waterfront, Elevator, [Reduced mobility], NetArea, YearBuilt, Description, Name, Address FROM dbo.Houses</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Houses] SET [referBuildingType] = @referBuildingType, [referNumBedrooms] = @referNumBedrooms, [referNumParking] = @referNumParking, [referPropertyType] = @referPropertyType, [price] = @price, [referEmployee] = @referEmployee, [referClient] = @referClient, [Pool] = @Pool, [Waterfront] = @Waterfront, [Elevator] = @Elevator, [Reduced mobility] = @Reduced_mobility, [NetArea] = @NetArea, [YearBuilt] = @YearBuilt, [Description] = @Description, [Name] = @Name, [Address] = @Address WHERE (([refHouse] = @Original_refHouse) AND ([referBuildingType] = @Original_referBuildingType) AND ([referNumBedrooms] = @Original_referNumBedrooms) AND ([referNumParking] = @Original_referNumParking) AND ([referPropertyType] = @Original_referPropertyType) AND ([price] = @Original_price) AND ([referEmployee] = @Original_referEmployee) AND ([referClient] = @Original_referClient) AND ((@IsNull_Pool = 1 AND [Pool] IS NULL) OR ([Pool] = @Original_Pool)) AND ((@IsNull_Waterfront = 1 AND [Waterfront] IS NULL) OR ([Waterfront] = @Original_Waterfront)) AND ((@IsNull_Elevator = 1 AND [Elevator] IS NULL) OR ([Elevator] = @Original_Elevator)) AND ((@IsNull_Reduced_mobility = 1 AND [Reduced mobility] IS NULL) OR ([Reduced mobility] = @Original_Reduced_mobility)) AND ([NetArea] = @Original_NetArea) AND ([YearBuilt] = @Original_YearBuilt) AND ([Name] = @Original_Name) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)));
+SELECT refHouse, referBuildingType, referNumBedrooms, referNumParking, referPropertyType, price, referEmployee, referClient, Pool, Waterfront, Elevator, [Reduced mobility], NetArea, YearBuilt, Description, Name, Address FROM Houses WHERE (refHouse = @refHouse)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referBuildingType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referBuildingType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referNumBedrooms" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referNumBedrooms" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referNumParking" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referNumParking" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referPropertyType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referPropertyType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@price" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="price" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referClient" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referClient" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Pool" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Pool" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Waterfront" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Waterfront" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Elevator" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Elevator" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Reduced_mobility" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Reduced mobility" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NetArea" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NetArea" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@YearBuilt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="YearBuilt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Description" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refHouse" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refHouse" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referBuildingType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referBuildingType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referNumBedrooms" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referNumBedrooms" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referNumParking" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referNumParking" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referPropertyType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referPropertyType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_price" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="price" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referClient" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referClient" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Pool" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Pool" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Pool" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Pool" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Waterfront" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Waterfront" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Waterfront" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Waterfront" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Elevator" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Elevator" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Elevator" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Elevator" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Reduced_mobility" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Reduced mobility" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Reduced_mobility" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Reduced mobility" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NetArea" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NetArea" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_YearBuilt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="YearBuilt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Address" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Address" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="refHouse" ColumnName="refHouse" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@refHouse" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="refHouse" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="refHouse" DataSetColumn="refHouse" />
+              <Mapping SourceColumn="referBuildingType" DataSetColumn="referBuildingType" />
+              <Mapping SourceColumn="referNumBedrooms" DataSetColumn="referNumBedrooms" />
+              <Mapping SourceColumn="referNumParking" DataSetColumn="referNumParking" />
+              <Mapping SourceColumn="referPropertyType" DataSetColumn="referPropertyType" />
+              <Mapping SourceColumn="price" DataSetColumn="price" />
+              <Mapping SourceColumn="referEmployee" DataSetColumn="referEmployee" />
+              <Mapping SourceColumn="referClient" DataSetColumn="referClient" />
+              <Mapping SourceColumn="Pool" DataSetColumn="Pool" />
+              <Mapping SourceColumn="Waterfront" DataSetColumn="Waterfront" />
+              <Mapping SourceColumn="Elevator" DataSetColumn="Elevator" />
+              <Mapping SourceColumn="Reduced mobility" DataSetColumn="Reduced mobility" />
+              <Mapping SourceColumn="NetArea" DataSetColumn="NetArea" />
+              <Mapping SourceColumn="YearBuilt" DataSetColumn="YearBuilt" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClientsTableAdapter" GeneratorDataComponentClassName="ClientsTableAdapter" Name="Clients" UserDataComponentName="ClientsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.Clients" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Clients] WHERE (([refClient] = @Original_refClient) AND ([Name] = @Original_Name) AND ([Phone] = @Original_Phone) AND ([Email] = @Original_Email) AND ([referEmployee] = @Original_referEmployee) AND ([Role] = @Original_Role))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refClient" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refClient" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Role" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Role" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Clients] ([Name], [Phone], [Email], [Comments], [referEmployee], [Role]) VALUES (@Name, @Phone, @Email, @Comments, @referEmployee, @Role);
+SELECT refClient, Name, Phone, Email, Comments, referEmployee, Role FROM Clients WHERE (refClient = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Comments" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="Comments" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Role" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Role" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT refClient, Name, Phone, Email, Comments, referEmployee, Role FROM dbo.Clients</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Clients] SET [Name] = @Name, [Phone] = @Phone, [Email] = @Email, [Comments] = @Comments, [referEmployee] = @referEmployee, [Role] = @Role WHERE (([refClient] = @Original_refClient) AND ([Name] = @Original_Name) AND ([Phone] = @Original_Phone) AND ([Email] = @Original_Email) AND ([referEmployee] = @Original_referEmployee) AND ([Role] = @Original_Role));
+SELECT refClient, Name, Phone, Email, Comments, referEmployee, Role FROM Clients WHERE (refClient = @refClient)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Comments" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="Comments" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Role" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Role" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_refClient" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="refClient" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Role" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Role" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="refClient" ColumnName="refClient" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@refClient" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="refClient" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="refClient" DataSetColumn="refClient" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="Comments" DataSetColumn="Comments" />
+              <Mapping SourceColumn="referEmployee" DataSetColumn="referEmployee" />
+              <Mapping SourceColumn="Role" DataSetColumn="Role" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AgentLanguagesTableAdapter" GeneratorDataComponentClassName="AgentLanguagesTableAdapter" Name="AgentLanguages" UserDataComponentName="AgentLanguagesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.AgentLanguages" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[AgentLanguages] WHERE (([referEmployee] = @Original_referEmployee) AND ([referLanguage] = @Original_referLanguage))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referLanguage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referLanguage" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[AgentLanguages] ([referEmployee], [referLanguage]) VALUES (@referEmployee, @referLanguage);
+SELECT referEmployee, referLanguage FROM AgentLanguages WHERE (referEmployee = @referEmployee) AND (referLanguage = @referLanguage)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referLanguage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referLanguage" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT referEmployee, referLanguage FROM dbo.AgentLanguages</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[AgentLanguages] SET [referEmployee] = @referEmployee, [referLanguage] = @referLanguage WHERE (([referEmployee] = @Original_referEmployee) AND ([referLanguage] = @Original_referLanguage));
+SELECT referEmployee, referLanguage FROM AgentLanguages WHERE (referEmployee = @referEmployee) AND (referLanguage = @referLanguage)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@referLanguage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referLanguage" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referEmployee" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referEmployee" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_referLanguage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="referLanguage" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="referEmployee" DataSetColumn="referEmployee" />
+              <Mapping SourceColumn="referLanguage" DataSetColumn="referLanguage" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewHousesTableAdapter" GeneratorDataComponentClassName="ViewHousesTableAdapter" Name="ViewHouses" UserDataComponentName="ViewHousesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RemaxConnectionString (Settings)" DbObjectName="dbo.ViewHouses" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Name, Year, NetArea, Price, Building, Bedroom, Parking, Property, Agent, Seller, Pool, Water, Mobility, Elevator, Description FROM dbo.ViewHouses</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+              <Mapping SourceColumn="NetArea" DataSetColumn="NetArea" />
+              <Mapping SourceColumn="Price" DataSetColumn="Price" />
+              <Mapping SourceColumn="Building" DataSetColumn="Building" />
+              <Mapping SourceColumn="Bedroom" DataSetColumn="Bedroom" />
+              <Mapping SourceColumn="Parking" DataSetColumn="Parking" />
+              <Mapping SourceColumn="Property" DataSetColumn="Property" />
+              <Mapping SourceColumn="Agent" DataSetColumn="Agent" />
+              <Mapping SourceColumn="Seller" DataSetColumn="Seller" />
+              <Mapping SourceColumn="Pool" DataSetColumn="Pool" />
+              <Mapping SourceColumn="Water" DataSetColumn="Water" />
+              <Mapping SourceColumn="Mobility" DataSetColumn="Mobility" />
+              <Mapping SourceColumn="Elevator" DataSetColumn="Elevator" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -541,72 +793,6 @@ SELECT refEmployee, Name, Phone, Email, Gender, Address, Image, Password, Role F
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Comments" msprop:Generator_ColumnVarNameInTable="columnComments" msprop:Generator_ColumnPropNameInRow="Comments" msprop:Generator_ColumnPropNameInTable="CommentsColumn" msprop:Generator_UserColumnName="Comments" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="ViewHouses" msprop:Generator_TableClassName="ViewHousesDataTable" msprop:Generator_TableVarName="tableViewHouses" msprop:Generator_RowChangedName="ViewHousesRowChanged" msprop:Generator_TablePropName="ViewHouses" msprop:Generator_RowDeletingName="ViewHousesRowDeleting" msprop:Generator_RowChangingName="ViewHousesRowChanging" msprop:Generator_RowEvHandlerName="ViewHousesRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewHousesRowDeleted" msprop:Generator_RowClassName="ViewHousesRow" msprop:Generator_UserTableName="ViewHouses" msprop:Generator_RowEvArgName="ViewHousesRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
-              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" />
-              <xs:element name="NetArea" msprop:Generator_ColumnVarNameInTable="columnNetArea" msprop:Generator_ColumnPropNameInRow="NetArea" msprop:Generator_ColumnPropNameInTable="NetAreaColumn" msprop:Generator_UserColumnName="NetArea" type="xs:int" />
-              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:double" />
-              <xs:element name="Building" msprop:Generator_ColumnVarNameInTable="columnBuilding" msprop:Generator_ColumnPropNameInRow="Building" msprop:Generator_ColumnPropNameInTable="BuildingColumn" msprop:Generator_UserColumnName="Building">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Bedroom" msprop:Generator_ColumnVarNameInTable="columnBedroom" msprop:Generator_ColumnPropNameInRow="Bedroom" msprop:Generator_ColumnPropNameInTable="BedroomColumn" msprop:Generator_UserColumnName="Bedroom">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Parking" msprop:Generator_ColumnVarNameInTable="columnParking" msprop:Generator_ColumnPropNameInRow="Parking" msprop:Generator_ColumnPropNameInTable="ParkingColumn" msprop:Generator_UserColumnName="Parking">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Property" msprop:Generator_ColumnVarNameInTable="columnProperty" msprop:Generator_ColumnPropNameInRow="Property" msprop:Generator_ColumnPropNameInTable="PropertyColumn" msprop:Generator_UserColumnName="Property" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Agent" msprop:Generator_ColumnVarNameInTable="columnAgent" msprop:Generator_ColumnPropNameInRow="Agent" msprop:Generator_ColumnPropNameInTable="AgentColumn" msprop:Generator_UserColumnName="Agent">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Seller" msprop:Generator_ColumnVarNameInTable="columnSeller" msprop:Generator_ColumnPropNameInRow="Seller" msprop:Generator_ColumnPropNameInTable="SellerColumn" msprop:Generator_UserColumnName="Seller">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -813,6 +999,168 @@ SELECT refEmployee, Name, Phone, Email, Gender, Address, Image, Password, Role F
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Houses" msprop:Generator_TableClassName="HousesDataTable" msprop:Generator_TableVarName="tableHouses" msprop:Generator_RowChangedName="HousesRowChanged" msprop:Generator_TablePropName="Houses" msprop:Generator_RowDeletingName="HousesRowDeleting" msprop:Generator_RowChangingName="HousesRowChanging" msprop:Generator_RowEvHandlerName="HousesRowChangeEventHandler" msprop:Generator_RowDeletedName="HousesRowDeleted" msprop:Generator_RowClassName="HousesRow" msprop:Generator_UserTableName="Houses" msprop:Generator_RowEvArgName="HousesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="refHouse" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnrefHouse" msprop:Generator_ColumnPropNameInRow="refHouse" msprop:Generator_ColumnPropNameInTable="refHouseColumn" msprop:Generator_UserColumnName="refHouse" type="xs:int" />
+              <xs:element name="referBuildingType" msprop:Generator_ColumnVarNameInTable="columnreferBuildingType" msprop:Generator_ColumnPropNameInRow="referBuildingType" msprop:Generator_ColumnPropNameInTable="referBuildingTypeColumn" msprop:Generator_UserColumnName="referBuildingType" type="xs:int" />
+              <xs:element name="referNumBedrooms" msprop:Generator_ColumnVarNameInTable="columnreferNumBedrooms" msprop:Generator_ColumnPropNameInRow="referNumBedrooms" msprop:Generator_ColumnPropNameInTable="referNumBedroomsColumn" msprop:Generator_UserColumnName="referNumBedrooms" type="xs:int" />
+              <xs:element name="referNumParking" msprop:Generator_ColumnVarNameInTable="columnreferNumParking" msprop:Generator_ColumnPropNameInRow="referNumParking" msprop:Generator_ColumnPropNameInTable="referNumParkingColumn" msprop:Generator_UserColumnName="referNumParking" type="xs:int" />
+              <xs:element name="referPropertyType" msprop:Generator_ColumnVarNameInTable="columnreferPropertyType" msprop:Generator_ColumnPropNameInRow="referPropertyType" msprop:Generator_ColumnPropNameInTable="referPropertyTypeColumn" msprop:Generator_UserColumnName="referPropertyType" type="xs:int" />
+              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:double" />
+              <xs:element name="referEmployee" msprop:Generator_ColumnVarNameInTable="columnreferEmployee" msprop:Generator_ColumnPropNameInRow="referEmployee" msprop:Generator_ColumnPropNameInTable="referEmployeeColumn" msprop:Generator_UserColumnName="referEmployee" type="xs:int" />
+              <xs:element name="referClient" msprop:Generator_ColumnVarNameInTable="columnreferClient" msprop:Generator_ColumnPropNameInRow="referClient" msprop:Generator_ColumnPropNameInTable="referClientColumn" msprop:Generator_UserColumnName="referClient" type="xs:int" />
+              <xs:element name="Pool" msprop:Generator_ColumnVarNameInTable="columnPool" msprop:Generator_ColumnPropNameInRow="Pool" msprop:Generator_ColumnPropNameInTable="PoolColumn" msprop:Generator_UserColumnName="Pool" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Waterfront" msprop:Generator_ColumnVarNameInTable="columnWaterfront" msprop:Generator_ColumnPropNameInRow="Waterfront" msprop:Generator_ColumnPropNameInTable="WaterfrontColumn" msprop:Generator_UserColumnName="Waterfront" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Elevator" msprop:Generator_ColumnVarNameInTable="columnElevator" msprop:Generator_ColumnPropNameInRow="Elevator" msprop:Generator_ColumnPropNameInTable="ElevatorColumn" msprop:Generator_UserColumnName="Elevator" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Reduced_x0020_mobility" msprop:Generator_ColumnVarNameInTable="columnReduced_mobility" msprop:Generator_ColumnPropNameInRow="Reduced_mobility" msprop:Generator_ColumnPropNameInTable="Reduced_mobilityColumn" msprop:Generator_UserColumnName="Reduced mobility" type="xs:boolean" minOccurs="0" />
+              <xs:element name="NetArea" msprop:Generator_ColumnVarNameInTable="columnNetArea" msprop:Generator_ColumnPropNameInRow="NetArea" msprop:Generator_ColumnPropNameInTable="NetAreaColumn" msprop:Generator_UserColumnName="NetArea" type="xs:int" />
+              <xs:element name="YearBuilt" msprop:Generator_ColumnVarNameInTable="columnYearBuilt" msprop:Generator_ColumnPropNameInRow="YearBuilt" msprop:Generator_ColumnPropNameInTable="YearBuiltColumn" msprop:Generator_UserColumnName="YearBuilt" type="xs:int" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Clients" msprop:Generator_TableClassName="ClientsDataTable" msprop:Generator_TableVarName="tableClients" msprop:Generator_TablePropName="Clients" msprop:Generator_RowDeletingName="ClientsRowDeleting" msprop:Generator_RowChangingName="ClientsRowChanging" msprop:Generator_RowEvHandlerName="ClientsRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientsRowDeleted" msprop:Generator_UserTableName="Clients" msprop:Generator_RowChangedName="ClientsRowChanged" msprop:Generator_RowEvArgName="ClientsRowChangeEvent" msprop:Generator_RowClassName="ClientsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="refClient" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnrefClient" msprop:Generator_ColumnPropNameInRow="refClient" msprop:Generator_ColumnPropNameInTable="refClientColumn" msprop:Generator_UserColumnName="refClient" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Comments" msprop:Generator_ColumnVarNameInTable="columnComments" msprop:Generator_ColumnPropNameInRow="Comments" msprop:Generator_ColumnPropNameInTable="CommentsColumn" msprop:Generator_UserColumnName="Comments" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="referEmployee" msprop:Generator_ColumnVarNameInTable="columnreferEmployee" msprop:Generator_ColumnPropNameInRow="referEmployee" msprop:Generator_ColumnPropNameInTable="referEmployeeColumn" msprop:Generator_UserColumnName="referEmployee" type="xs:int" />
+              <xs:element name="Role" msprop:Generator_ColumnVarNameInTable="columnRole" msprop:Generator_ColumnPropNameInRow="Role" msprop:Generator_ColumnPropNameInTable="RoleColumn" msprop:Generator_UserColumnName="Role">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AgentLanguages" msprop:Generator_TableClassName="AgentLanguagesDataTable" msprop:Generator_TableVarName="tableAgentLanguages" msprop:Generator_RowChangedName="AgentLanguagesRowChanged" msprop:Generator_TablePropName="AgentLanguages" msprop:Generator_RowDeletingName="AgentLanguagesRowDeleting" msprop:Generator_RowChangingName="AgentLanguagesRowChanging" msprop:Generator_RowEvHandlerName="AgentLanguagesRowChangeEventHandler" msprop:Generator_RowDeletedName="AgentLanguagesRowDeleted" msprop:Generator_RowClassName="AgentLanguagesRow" msprop:Generator_UserTableName="AgentLanguages" msprop:Generator_RowEvArgName="AgentLanguagesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="referEmployee" msprop:Generator_ColumnVarNameInTable="columnreferEmployee" msprop:Generator_ColumnPropNameInRow="referEmployee" msprop:Generator_ColumnPropNameInTable="referEmployeeColumn" msprop:Generator_UserColumnName="referEmployee" type="xs:int" />
+              <xs:element name="referLanguage" msprop:Generator_ColumnVarNameInTable="columnreferLanguage" msprop:Generator_ColumnPropNameInRow="referLanguage" msprop:Generator_ColumnPropNameInTable="referLanguageColumn" msprop:Generator_UserColumnName="referLanguage" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ViewHouses" msprop:Generator_TableClassName="ViewHousesDataTable" msprop:Generator_TableVarName="tableViewHouses" msprop:Generator_TablePropName="ViewHouses" msprop:Generator_RowDeletingName="ViewHousesRowDeleting" msprop:Generator_RowChangingName="ViewHousesRowChanging" msprop:Generator_RowEvHandlerName="ViewHousesRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewHousesRowDeleted" msprop:Generator_UserTableName="ViewHouses" msprop:Generator_RowChangedName="ViewHousesRowChanged" msprop:Generator_RowEvArgName="ViewHousesRowChangeEvent" msprop:Generator_RowClassName="ViewHousesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" />
+              <xs:element name="NetArea" msprop:Generator_ColumnVarNameInTable="columnNetArea" msprop:Generator_ColumnPropNameInRow="NetArea" msprop:Generator_ColumnPropNameInTable="NetAreaColumn" msprop:Generator_UserColumnName="NetArea" type="xs:int" />
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:double" />
+              <xs:element name="Building" msprop:Generator_ColumnVarNameInTable="columnBuilding" msprop:Generator_ColumnPropNameInRow="Building" msprop:Generator_ColumnPropNameInTable="BuildingColumn" msprop:Generator_UserColumnName="Building">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bedroom" msprop:Generator_ColumnVarNameInTable="columnBedroom" msprop:Generator_ColumnPropNameInRow="Bedroom" msprop:Generator_ColumnPropNameInTable="BedroomColumn" msprop:Generator_UserColumnName="Bedroom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Parking" msprop:Generator_ColumnVarNameInTable="columnParking" msprop:Generator_ColumnPropNameInRow="Parking" msprop:Generator_ColumnPropNameInTable="ParkingColumn" msprop:Generator_UserColumnName="Parking">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Property" msprop:Generator_ColumnVarNameInTable="columnProperty" msprop:Generator_ColumnPropNameInRow="Property" msprop:Generator_ColumnPropNameInTable="PropertyColumn" msprop:Generator_UserColumnName="Property" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Agent" msprop:Generator_ColumnVarNameInTable="columnAgent" msprop:Generator_ColumnPropNameInRow="Agent" msprop:Generator_ColumnPropNameInTable="AgentColumn" msprop:Generator_UserColumnName="Agent">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Seller" msprop:Generator_ColumnVarNameInTable="columnSeller" msprop:Generator_ColumnPropNameInRow="Seller" msprop:Generator_ColumnPropNameInTable="SellerColumn" msprop:Generator_UserColumnName="Seller">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pool" msprop:Generator_ColumnVarNameInTable="columnPool" msprop:Generator_ColumnPropNameInRow="Pool" msprop:Generator_ColumnPropNameInTable="PoolColumn" msprop:Generator_UserColumnName="Pool" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Water" msprop:Generator_ColumnVarNameInTable="columnWater" msprop:Generator_ColumnPropNameInRow="Water" msprop:Generator_ColumnPropNameInTable="WaterColumn" msprop:Generator_UserColumnName="Water" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Mobility" msprop:Generator_ColumnVarNameInTable="columnMobility" msprop:Generator_ColumnPropNameInRow="Mobility" msprop:Generator_ColumnPropNameInTable="MobilityColumn" msprop:Generator_UserColumnName="Mobility" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Elevator" msprop:Generator_ColumnVarNameInTable="columnElevator" msprop:Generator_ColumnPropNameInRow="Elevator" msprop:Generator_ColumnPropNameInTable="ElevatorColumn" msprop:Generator_UserColumnName="Elevator" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -821,10 +1169,6 @@ SELECT refEmployee, Name, Phone, Email, Gender, Address, Image, Password, Role F
     </xs:unique>
     <xs:unique name="ViewClients_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ViewClients" />
-      <xs:field xpath="mstns:Id" />
-    </xs:unique>
-    <xs:unique name="ViewHouses_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ViewHouses" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
     <xs:unique name="Languages_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
@@ -855,5 +1199,35 @@ SELECT refEmployee, Name, Phone, Email, Gender, Address, Image, Password, Role F
       <xs:selector xpath=".//mstns:Employees" />
       <xs:field xpath="mstns:refEmployee" />
     </xs:unique>
+    <xs:unique name="Houses_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Houses" />
+      <xs:field xpath="mstns:refHouse" />
+    </xs:unique>
+    <xs:unique name="Clients_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Clients" />
+      <xs:field xpath="mstns:refClient" />
+    </xs:unique>
+    <xs:unique name="AgentLanguages_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:AgentLanguages" />
+      <xs:field xpath="mstns:referEmployee" />
+      <xs:field xpath="mstns:referLanguage" />
+    </xs:unique>
+    <xs:unique name="ViewHouses_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ViewHouses" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
   </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_Houses_Agent" msdata:parent="Employees" msdata:child="Houses" msdata:parentkey="refEmployee" msdata:childkey="referEmployee" msprop:Generator_UserChildTable="Houses" msprop:Generator_ChildPropName="GetHousesRows" msprop:Generator_UserRelationName="FK_Houses_Agent" msprop:Generator_RelationVarName="relationFK_Houses_Agent" msprop:Generator_UserParentTable="Employees" msprop:Generator_ParentPropName="EmployeesRow" />
+      <msdata:Relationship name="FK_Houses_BuildingType" msdata:parent="BuildingType" msdata:child="Houses" msdata:parentkey="refBuildingType" msdata:childkey="referBuildingType" msprop:Generator_UserChildTable="Houses" msprop:Generator_ChildPropName="GetHousesRows" msprop:Generator_UserRelationName="FK_Houses_BuildingType" msprop:Generator_RelationVarName="relationFK_Houses_BuildingType" msprop:Generator_UserParentTable="BuildingType" msprop:Generator_ParentPropName="BuildingTypeRow" />
+      <msdata:Relationship name="FK_Houses_NumBedrooms" msdata:parent="NumBedrooms" msdata:child="Houses" msdata:parentkey="refNumBedrooms" msdata:childkey="referNumBedrooms" msprop:Generator_UserChildTable="Houses" msprop:Generator_ChildPropName="GetHousesRows" msprop:Generator_UserRelationName="FK_Houses_NumBedrooms" msprop:Generator_RelationVarName="relationFK_Houses_NumBedrooms" msprop:Generator_UserParentTable="NumBedrooms" msprop:Generator_ParentPropName="NumBedroomsRow" />
+      <msdata:Relationship name="FK_Houses_NumParking" msdata:parent="NumParking" msdata:child="Houses" msdata:parentkey="refNumParking" msdata:childkey="referNumParking" msprop:Generator_UserChildTable="Houses" msprop:Generator_ChildPropName="GetHousesRows" msprop:Generator_UserRelationName="FK_Houses_NumParking" msprop:Generator_RelationVarName="relationFK_Houses_NumParking" msprop:Generator_UserParentTable="NumParking" msprop:Generator_ParentPropName="NumParkingRow" />
+      <msdata:Relationship name="FK_Houses_PropertyType" msdata:parent="PropertyType" msdata:child="Houses" msdata:parentkey="refPropertyType" msdata:childkey="referPropertyType" msprop:Generator_UserChildTable="Houses" msprop:Generator_ChildPropName="GetHousesRows" msprop:Generator_UserRelationName="FK_Houses_PropertyType" msprop:Generator_RelationVarName="relationFK_Houses_PropertyType" msprop:Generator_UserParentTable="PropertyType" msprop:Generator_ParentPropName="PropertyTypeRow" />
+      <msdata:Relationship name="FK_Houses_Clients" msdata:parent="Clients" msdata:child="Houses" msdata:parentkey="refClient" msdata:childkey="referClient" msprop:Generator_UserChildTable="Houses" msprop:Generator_ChildPropName="GetHousesRows" msprop:Generator_UserRelationName="FK_Houses_Clients" msprop:Generator_RelationVarName="relationFK_Houses_Clients" msprop:Generator_UserParentTable="Clients" msprop:Generator_ParentPropName="ClientsRow" />
+      <msdata:Relationship name="FK_Clients_Agents" msdata:parent="Employees" msdata:child="Clients" msdata:parentkey="refEmployee" msdata:childkey="referEmployee" msprop:Generator_UserChildTable="Clients" msprop:Generator_ChildPropName="GetClientsRows" msprop:Generator_UserRelationName="FK_Clients_Agents" msprop:Generator_ParentPropName="EmployeesRow" msprop:Generator_RelationVarName="relationFK_Clients_Agents" msprop:Generator_UserParentTable="Employees" />
+      <msdata:Relationship name="FK_AgentLanguages_Agent" msdata:parent="Employees" msdata:child="AgentLanguages" msdata:parentkey="refEmployee" msdata:childkey="referEmployee" msprop:Generator_UserChildTable="AgentLanguages" msprop:Generator_ChildPropName="GetAgentLanguagesRows" msprop:Generator_UserRelationName="FK_AgentLanguages_Agent" msprop:Generator_RelationVarName="relationFK_AgentLanguages_Agent" msprop:Generator_UserParentTable="Employees" msprop:Generator_ParentPropName="EmployeesRow" />
+      <msdata:Relationship name="FK_AgentLanguages_Languages" msdata:parent="Languages" msdata:child="AgentLanguages" msdata:parentkey="refLanguage" msdata:childkey="referLanguage" msprop:Generator_UserChildTable="AgentLanguages" msprop:Generator_ChildPropName="GetAgentLanguagesRows" msprop:Generator_UserRelationName="FK_AgentLanguages_Languages" msprop:Generator_RelationVarName="relationFK_AgentLanguages_Languages" msprop:Generator_UserParentTable="Languages" msprop:Generator_ParentPropName="LanguagesRow" />
+    </xs:appinfo>
+  </xs:annotation>
 </xs:schema>

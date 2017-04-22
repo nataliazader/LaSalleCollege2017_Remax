@@ -47,5 +47,19 @@ namespace WinFormWebApp_Remax_Zader.DATASOURCE
                 connection.Close();
             }
         }
+
+        public static void UpdateClientsDB(DataTable newClients)
+        {
+            SqlConnection connection = Remax.getConnection();
+            SqlCommand command = new SqlCommand("SELECT * FROM Clients", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataSet = new DataSet();
+            connection.Open();
+            adapter.Fill(dataSet, "Clients");
+            connection.Close();
+            DataTable oldClients = dataSet.Tables["Clients"];
+            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+            adapter.Update(newClients);
+        }
     }
 }

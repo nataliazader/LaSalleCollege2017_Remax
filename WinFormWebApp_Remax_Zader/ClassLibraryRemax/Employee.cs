@@ -28,5 +28,11 @@ namespace ClassLibraryRemax
             this.Role = role;
             this.Password = password;
         }
+
+        public Employee(string id,string name, string phone, string email, string role, string password) : base(id,name, phone, email)
+        {
+            this.Role = role;
+            this.Password = password;
+        }
     }
 }

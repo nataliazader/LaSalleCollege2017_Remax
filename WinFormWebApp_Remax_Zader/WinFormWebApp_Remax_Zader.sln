@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormWebApp_Remax_Zader", "WinFormWebApp_Remax_Zader\WinFormWebApp_Remax_Zader.csproj", "{A0DC2C09-D281-4909-BEBD-E1B327726E22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForm_Remax_Zader", "WinFormWebApp_Remax_Zader\WinForm_Remax_Zader.csproj", "{A0DC2C09-D281-4909-BEBD-E1B327726E22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryRemax", "ClassLibraryRemax\ClassLibraryRemax.csproj", "{C6646C0B-7093-4342-AC7A-C99F56EDBC29}"
 EndProject

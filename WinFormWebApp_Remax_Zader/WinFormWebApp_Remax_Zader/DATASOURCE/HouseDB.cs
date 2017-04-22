@@ -58,5 +58,19 @@ namespace WinFormWebApp_Remax_Zader.DATASOURCE
                 connection.Close();
             }
         }
+
+        public static void UpdateHousesDB(DataTable newHouses)
+        {
+            SqlConnection connection = Remax.getConnection();           
+            SqlCommand command = new SqlCommand("SELECT * FROM Houses", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataSet = new DataSet();
+            connection.Open();
+            adapter.Fill(dataSet,"Houses");
+            connection.Close();
+            DataTable oldHouses = dataSet.Tables["Houses"];
+            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+            adapter.Update(newHouses);
+        }
     }
 }
