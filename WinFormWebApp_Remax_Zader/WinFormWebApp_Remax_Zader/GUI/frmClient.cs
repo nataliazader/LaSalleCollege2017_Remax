@@ -89,8 +89,7 @@ namespace WinFormWebApp_Remax_Zader.GUI
                 frmLogin.agent.EditClient(client);
                 ClientDB.UpdateClientsDB(frmLogin.agent.Clients);
             }
-
-
+           this.Close();
         }
     }
 }

@@ -139,6 +139,33 @@ namespace WinFormWebApp_Remax_Zader.DATASOURCE
             adapterL.Update(newLanguages);
             SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
             adapter.Update(newEmployees);
-        } 
-     }
+        }
+
+        public static DataView getViewEmployees(string agent)
+        {
+            DataView dataViewEmployees = new DataView();
+            DataTable dataTableEmployees = new DataTable();
+            SqlConnection connection = Remax.getConnection();
+            string viewStatement = "SELECT Employees.refEmployee as Id,Employees.Name,Employees.Phone,Employees.Email,Employees.Gender,Employees.Address,Employees.Image,Employees.Role,Employees.Password FROM Employees ";
+            try
+            {
+                connection.Open();
+                SqlCommand selectCommand = new SqlCommand(viewStatement, connection);
+                SqlDataReader employeeReader = selectCommand.ExecuteReader();
+                dataTableEmployees.Load(employeeReader);
+                dataViewEmployees = dataTableEmployees.DefaultView;
+                if (agent != "")
+                    dataViewEmployees.RowFilter = "Role='Agent'";
+                return dataViewEmployees;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+    }
 }

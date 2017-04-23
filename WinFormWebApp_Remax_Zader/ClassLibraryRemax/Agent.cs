@@ -66,9 +66,6 @@ namespace ClassLibraryRemax
         }
 
 
-        public void SearchHouse() { }
-        public void SearchClient() { }
-
         public void AddHouse(House house)
         {
             DataRow row = this.Houses.NewRow();

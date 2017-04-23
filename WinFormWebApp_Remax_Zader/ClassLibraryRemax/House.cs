@@ -99,10 +99,5 @@ namespace ClassLibraryRemax
             this.Address = address;
         }
 
-        //example
-        public override string GetDisplayText(string sep)
-        {
-            return this.NetArea + sep + this.YearBuilt + sep + this.Price.ToString("с");
-        }
     }
 }

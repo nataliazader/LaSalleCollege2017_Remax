@@ -28,11 +28,22 @@ namespace WinFormWebApp_Remax_Zader.GUI
         private void frmHouse_Load(object sender, EventArgs e)
         {
             txtHName.Focus();
-            
-            cboHClient.DataSource = Remax.ViewClients();
+            if (frmLogin.admin != null)
+            {
+                DataTable dt = Remax.ViewClients();
+                DataView dv = dt.DefaultView;
+                dv.RowFilter =" Role='Seller' ";
+                cboHClient.DataSource = dv;
+            }
+            else
+            {
+                DataTable dt = Remax.ViewClients();
+                DataView dv = dt.DefaultView;
+                dv.RowFilter = "Agent = '" + frmLogin.agent.Name + "' AND Role='Seller'";
+                cboHClient.DataSource = dv;
+            }
             cboHClient.DisplayMember = "Name";
             cboHClient.ValueMember = "Id";
-
             if (frmLogin.admin != null)
             {
                 cboHAgent.DataSource = Remax.ViewEmployees();

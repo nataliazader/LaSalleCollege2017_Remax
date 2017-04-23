@@ -39,27 +39,30 @@ namespace WinFormWebApp_Remax_Zader.GUI
             }
             if (frmRemax.formToManage == "house")
             {
-                if (frmLogin.employee == null)
-                    dgvResult.DataSource = Remax.ViewHouses("user");
+                if (frmLogin.admin != null)
+                    dgvResult.DataSource = HouseDB.getViewHouses("admin");
                 else
-                    dgvResult.DataSource = Remax.ViewHouses();
+                    dgvResult.DataSource = HouseDB.getViewHouses("user or agent");
             }
             else if (frmRemax.formToManage == "client")
             {
                 if (frmLogin.agent != null)
                 {
-                    dgvResult.DataSource = Remax.ViewClients(frmLogin.agent.Name);
+                    dgvResult.DataSource = ClientDB.getViewClients(frmLogin.agent.Name);
                 }
                 else
-                   dgvResult.DataSource = Remax.ViewClients();
+                    dgvResult.DataSource = ClientDB.getViewClients("");
             }
             else if (frmRemax.formToManage == "employee")
             {
-                dgvResult.DataSource = Remax.ViewEmployees();
+                dgvResult.DataSource = EmployeeDB.getViewEmployees("");
             }
             else if (frmRemax.formToManage == "agent")
             {
-                dgvResult.DataSource = Remax.TabAgents();
+                dgvResult.DataSource = EmployeeDB.getViewEmployees("agent");
+                dgvResult.Columns["Image"].Visible = false;
+                dgvResult.Columns["Role"].Visible = false;
+                dgvResult.Columns["Password"].Visible = false;
             }
         }
 
@@ -187,13 +190,153 @@ namespace WinFormWebApp_Remax_Zader.GUI
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            checkBoxName.Checked=checkBoxID.Checked = false;
+            txtSearch.Text = "";
             if (frmRemax.formToManage == "house")
             {
-                if (frmLogin.employee == null)
-                    dgvResult.DataSource = Remax.ViewHouses("user");
+                if(frmLogin.admin!=null)
+                    dgvResult.DataSource = HouseDB.getViewHouses("admin");
                 else
-                    dgvResult.DataSource = Remax.ViewHouses();
+                    dgvResult.DataSource = HouseDB.getViewHouses("user or agent");
+            }
+
+            if (frmRemax.formToManage == "client")
+            {
+                if (frmLogin.agent == null)
+                    dgvResult.DataSource = ClientDB.getViewClients("");
+                else
+                {
+                    dgvResult.DataSource = ClientDB.getViewClients(frmLogin.agent.Name);
+                }
+            }
+
+            if (frmRemax.formToManage == "employee")
+            {
+                dgvResult.DataSource = EmployeeDB.getViewEmployees("");
+            }
+            if (frmRemax.formToManage == "agent")
+            {
+                dgvResult.DataSource = EmployeeDB.getViewEmployees("agent");
+                dgvResult.Columns["Image"].Visible = false;
+                dgvResult.Columns["Role"].Visible = false;
+                dgvResult.Columns["Password"].Visible = false;
             }
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (checkBoxID.Checked)
+            {
+                if (txtSearch.Text == "")
+                    MessageBox.Show("Enter a criteria");
+                else
+                {
+                    string criteria = txtSearch.Text;
+                    if (frmRemax.formToManage == "house")
+                    {
+                        if (frmLogin.admin != null)
+                        {
+                            DataView dv = HouseDB.getViewHouses("admin");
+                            dv.RowFilter = "CONVERT(Id, System.String) LIKE '%" + criteria+"%'";
+                            dgvResult.DataSource=dv;
+                        }                        
+                        else
+                        {
+                            DataView dv = HouseDB.getViewHouses("user or agent");
+                            dv.RowFilter = "CONVERT(Id, System.String) LIKE '%" + criteria + "%'";
+                            dgvResult.DataSource = dv;
+                        }
+                    }
+                    if (frmRemax.formToManage == "client")
+                    {
+                        if (frmLogin.agent == null)
+                        {
+                            DataView dv = ClientDB.getViewClients("");
+                            dv.RowFilter = "CONVERT(Id, System.String) LIKE '%" + criteria + "%'";
+                            dgvResult.DataSource = dv;
+                        }
+                        else
+                        {
+                            DataView dv = ClientDB.getViewClients(frmLogin.agent.Name);
+                            dv.RowFilter = " CONVERT(Id, System.String) LIKE '%" + criteria + "%'";
+                            dgvResult.DataSource = dv;
+                        }
+                    }
+                    if (frmRemax.formToManage == "employee")
+                    {
+                        DataView dv = EmployeeDB.getViewEmployees("");
+                        dv.RowFilter = "CONVERT(Id, System.String) LIKE '%" + criteria + "%'";
+                        dgvResult.DataSource = dv;
+                    }
+                    if (frmRemax.formToManage == "agent")
+                    {
+                        DataView dv = EmployeeDB.getViewEmployees("agent");
+                        dv.RowFilter = "CONVERT(Id, System.String) LIKE '%" + criteria + "%'";
+                        dgvResult.DataSource = dv;
+                    }
+                }
+            }
+            if (checkBoxName.Checked)
+            {
+                if (txtSearch.Text == "")
+                    MessageBox.Show("Enter a criteria");
+                else
+                {
+                    string criteria = txtSearch.Text;
+                    if (frmRemax.formToManage == "house")
+                    {
+                        if (frmLogin.employee == null)
+                        {
+                            DataTable dt = Remax.ViewHouses("user");
+                            DataView dv = dt.DefaultView;
+                            dv.RowFilter = "Name LIKE '%" + criteria + "%'";
+                            dgvResult.DataSource = dv;
+                        }
+                        else
+                        {
+                            DataTable dt = Remax.ViewHouses();
+                            DataView dv = dt.DefaultView;
+                            dv.RowFilter = "Name LIKE '%" + criteria + "%'";
+                            dgvResult.DataSource = dv;
+                        }
+                    }
+                    if (frmRemax.formToManage == "client")
+                    {
+                        if (frmLogin.agent != null)
+                        {
+                            DataView dv = Remax.ViewClients(frmLogin.agent.Name);
+                            dv.RowFilter = "Name LIKE '%" + criteria + "%'";
+                            dgvResult.DataSource = dv;
+                        }
+                        else
+                        {
+                            DataTable dt = Remax.ViewClients();
+                            DataView dv = dt.DefaultView;
+                            dv.RowFilter = "Name LIKE '%" + criteria + "%'";
+                            dgvResult.DataSource = dv;
+                        }
+                    }
+                    if (frmRemax.formToManage == "employee")
+                    {
+                        DataTable dt = Remax.ViewEmployees();
+                        DataView dv = dt.DefaultView;
+                        dv.RowFilter = "Name LIKE '%" + criteria + "%'";
+                        dgvResult.DataSource =dv;
+                    }
+                    if (frmRemax.formToManage == "agent")
+                    {
+                        DataTable dt = Remax.TabAgents();
+                        DataView dv = dt.DefaultView;
+                        dv.RowFilter= "Name LIKE '%" + criteria + "%'";
+                        dgvResult.DataSource = dv;
+                    }
+                }
+            }
+           if(!checkBoxName.Checked && !checkBoxID.Checked) 
+            {
+                MessageBox.Show("Check type of search.");
+            }
+        }
+
     }
 }

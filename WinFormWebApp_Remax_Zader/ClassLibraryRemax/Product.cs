@@ -43,6 +43,5 @@ namespace ClassLibraryRemax
             this.Price = price;
             this.Description = description;
         }
-        public abstract string GetDisplayText(string sep);
     }
 }

@@ -42,11 +42,6 @@ namespace ClassLibraryRemax
             this.Languages = null;
         }
 
-        public void SearchHouse() { }
-        public void SearchClient() { }
-        public void SearchEmployee() { }
-        public void SearchSale() { }
-
         public void AddHouse(House house) {
             DataRow row = this.Houses.NewRow();
             row["referBuildingType"] = house.BuildingType;

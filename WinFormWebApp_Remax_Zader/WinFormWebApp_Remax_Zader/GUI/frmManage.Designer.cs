@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvResult = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.checkBoxID = new System.Windows.Forms.CheckBox();
+            this.checkBoxName = new System.Windows.Forms.CheckBox();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.dataSetRemax = new WinFormWebApp_Remax_Zader.DataSetRemax();
+            this.viewHousesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.viewHousesTableAdapter = new WinFormWebApp_Remax_Zader.DataSetRemaxTableAdapters.ViewHousesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRemax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewHousesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvResult
@@ -95,7 +106,7 @@
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
             this.btnRefresh.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(24, 28);
+            this.btnRefresh.Location = new System.Drawing.Point(682, 30);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(80, 30);
             this.btnRefresh.TabIndex = 5;
@@ -103,11 +114,76 @@
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // checkBoxID
+            // 
+            this.checkBoxID.AutoSize = true;
+            this.checkBoxID.Location = new System.Drawing.Point(85, 34);
+            this.checkBoxID.Name = "checkBoxID";
+            this.checkBoxID.Size = new System.Drawing.Size(37, 17);
+            this.checkBoxID.TabIndex = 6;
+            this.checkBoxID.Text = "ID";
+            this.checkBoxID.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxName
+            // 
+            this.checkBoxName.AutoSize = true;
+            this.checkBoxName.Location = new System.Drawing.Point(85, 58);
+            this.checkBoxName.Name = "checkBoxName";
+            this.checkBoxName.Size = new System.Drawing.Size(54, 17);
+            this.checkBoxName.TabIndex = 7;
+            this.checkBoxName.Text = "Name";
+            this.checkBoxName.UseVisualStyleBackColor = true;
+            // 
+            // labelSearch
+            // 
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Location = new System.Drawing.Point(12, 43);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(58, 13);
+            this.labelSearch.TabIndex = 8;
+            this.labelSearch.Text = "Search by ";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(168, 40);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(145, 20);
+            this.txtSearch.TabIndex = 9;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(358, 37);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 10;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // dataSetRemax
+            // 
+            this.dataSetRemax.DataSetName = "DataSetRemax";
+            this.dataSetRemax.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // viewHousesBindingSource
+            // 
+            this.viewHousesBindingSource.DataMember = "ViewHouses";
+            this.viewHousesBindingSource.DataSource = this.dataSetRemax;
+            // 
+            // viewHousesTableAdapter
+            // 
+            this.viewHousesTableAdapter.ClearBeforeFill = true;
+            // 
             // frmManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.labelSearch);
+            this.Controls.Add(this.checkBoxName);
+            this.Controls.Add(this.checkBoxID);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnDelete);
@@ -116,12 +192,16 @@
             this.Controls.Add(this.dgvResult);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmManage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage ";
             this.Load += new System.EventHandler(this.frmManage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetRemax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewHousesBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -132,5 +212,13 @@
         private System.Windows.Forms.Button btnClose;
         public System.Windows.Forms.DataGridView dgvResult;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.CheckBox checkBoxID;
+        private System.Windows.Forms.CheckBox checkBoxName;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
+        private DataSetRemax dataSetRemax;
+        private System.Windows.Forms.BindingSource viewHousesBindingSource;
+        private DataSetRemaxTableAdapters.ViewHousesTableAdapter viewHousesTableAdapter;
     }
 }

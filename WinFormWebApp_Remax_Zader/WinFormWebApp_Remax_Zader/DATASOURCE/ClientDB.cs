@@ -61,5 +61,35 @@ namespace WinFormWebApp_Remax_Zader.DATASOURCE
             SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
             adapter.Update(newClients);
         }
+
+        public static DataView getViewClients(string agent)
+        {
+            DataView dataViewClients = new DataView();
+            DataTable dataTableClients = new DataTable();
+            SqlConnection connection = Remax.getConnection();
+            string viewStatement = " SELECT Clients.refClient as Id, Clients.Name, Clients.Phone, Clients.Email, Clients.Role, Employees.Name as Agent, Clients.Comments ";
+                   viewStatement += " FROM Clients ";
+                   viewStatement += " INNER JOIN Employees on Clients.referEmployee = Employees.refEmployee";
+            try
+            {
+                connection.Open();
+                SqlCommand selectCommand = new SqlCommand(viewStatement, connection);
+                SqlDataReader clientsReader = selectCommand.ExecuteReader();
+                dataTableClients.Load(clientsReader);
+                dataViewClients = dataTableClients.DefaultView;
+                if (agent !="")
+                    dataViewClients.RowFilter=" Agent = '" + agent + "'";
+                return dataViewClients;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
     }
 }
